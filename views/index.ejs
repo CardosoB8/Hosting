@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazer Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        p.description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin: 10px 0 5px;
+        }
+        input, textarea, select {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+        .show-alias {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .whatsapp-link {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            color: #007BFF;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fazer Upload</h1>
+        <p class="description">
+            Bem-vindo à nossa página de upload! Aqui você pode fazer o upload de arquivos HTML ou inserir diretamente o código HTML que deseja compartilhar. 
+            Se optar por fazer o upload de um arquivo, basta escolher o arquivo HTML que deseja enviar. 
+            Caso prefira inserir o código diretamente, você pode colar seu HTML no campo apropriado.
+            <br><br>
+            Dependendo do tipo de upload escolhido, você pode optar por usar um alias personalizado e definir uma senha para proteger seu upload. 
+            Se selecionar "Upload sem senha", o campo de alias será exibido para que você possa definir um alias para acessar seu conteúdo. 
+            Se escolher "Upload com senha", será necessário fornecer a senha correta para finalizar o upload.
+            <br><br>
+            Caso deseje utilizar um alias, clique no botão abaixo para obter informações sobre como fazer isso via WhatsApp.
+        </p>
+        <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+            <label for="uploadType">Tipo de Upload:</label>
+            <select id="uploadType" name="uploadType" onchange="toggleAliasField()" required>
+                <option value="free">Upload sem senha</option>
+                <option value="password">Upload com senha</option>
+            </select>
+
+            <label for="inputType">Escolha o tipo de entrada:</label>
+            <select id="inputType" name="inputType" onchange="toggleInputField()" required>
+                <option value="file">Upload de arquivo</option>
+                <option value="code">Inserir código diretamente</option>
+            </select>
+
+            <div id="aliasSection" class="hidden">
+                <label for="alias">Alias:</label>
+                <input type="text" id="alias" name="alias" aria-required="true">
+            </div>
+
+            <div id="fileSection">
+                <label for="file">Arquivo:</label>
+                <input type="file" id="file" name="file" accept=".html, .txt" aria-required="true">
+            </div>
+
+            <div id="codeSection" class="hidden">
+                <label for="htmlContent">Conteúdo HTML:</label>
+                <textarea id="htmlContent" name="htmlContent" rows="10"></textarea>
+            </div>
+
+            <label for="password" id="passwordLabel" class="hidden">Senha:</label>
+            <input type="password" id="password" name="password" class="hidden" aria-required="true">
+
+            <button type="submit">Enviar</button>
+        </form>
+
+        <div class="show-alias">
+            <button onclick="openWhatsApp()">Clique aqui para usar alias</button>
+            <a href="https://wa.me/5588999999999" class="whatsapp-link" id="whatsappLink" target="_blank" rel="noopener noreferrer">Entrar em contato via WhatsApp</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleAliasField() {
+            const uploadType = document.getElementById('uploadType').value;
+            const aliasSection = document.getElementById('aliasSection');
+            const passwordField = document.getElementById('password');
+            const passwordLabel = document.getElementById('passwordLabel');
+
+            if (uploadType === 'password') {
+                aliasSection.classList.remove('hidden');
+                passwordField.classList.remove('hidden');
+                passwordLabel.classList.remove('hidden');
+            } else {
+                aliasSection.classList.add('hidden');
+                passwordField.classList.add('hidden');
+                passwordLabel.classList.add('hidden');
+            }
+        }
+
+        function toggleInputField() {
+            const inputType = document.getElementById('inputType').value;
+            const fileSection = document.getElementById('fileSection');
+            const codeSection = document.getElementById('codeSection');
+
+            if (inputType === 'file') {
+                fileSection.classList.remove('hidden');
+                codeSection.classList.add('hidden');
+            } else {
+                fileSection.classList.add('hidden');
+                codeSection.classList.remove('hidden');
+            }
+        }
+
+        function openWhatsApp() {
+            window.open('https://wa.me/5588999999999', '_blank');
+        }
+    </script>
+</body>
+</html>

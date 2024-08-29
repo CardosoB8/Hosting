@@ -1,0 +1,9 @@
+# Ignorar diretórios node_modules e uploads
+node_modules/
+uploads/
+
+# Ignorar arquivos de configuração e variáveis de ambiente
+.env.bak
+
+# Ignorar logs e arquivos temporários
+*.log
