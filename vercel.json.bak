@@ -12,13 +12,19 @@
   ],
   "routes": [
     {
-      "src": "^/api/(.*)",
+      "src": "/api/(.*)",
       "dest": "/index.js"
     },
     {
-      "src": "^/(.*)$",
-      "dest": "/views/$1",
-      "status": 200
+      "src": "/(.*)",
+      "dest": "/views/$1"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.js"
     }
   ]
 }
