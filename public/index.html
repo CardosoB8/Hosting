@@ -1,299 +1,160 @@
-
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gire para Ganhar Dinheiro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Bebas+Neue&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold: #FFD700;
-            --dark-blue: #0c1024;
-            --dark-blue-rgb: 12, 16, 36;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Favicon (Ícone da Página) -->
+  <link rel="icon" type="image/jpeg" href="https://i.ibb.co/JFxW4bmT/Gemini-Generated-Image-31uyzu31uyzu31uy-1.jpg">
+  <link rel="apple-touch-icon" href="https://i.ibb.co/JFxW4bmT/Gemini-Generated-Image-31uyzu31uyzu31uy-1.jpg">
+  
+  <!-- SEO Meta Tags (Otimizadas para serem 'Furtivas') -->
+  <title>Mente Curiosa | Explore o Desconhecido</title>
+  <meta id="meta-description" name="description" content="Explore um universo de curiosidades fascinantes. Artigos sobre história, ciência, mistérios e as maravilhas do mundo. A sua jornada pelo conhecimento começa aqui.">
+  <meta id="meta-keywords" name="keywords" content="curiosidades, blog, história, ciência, mistérios, animais, tecnologia, sociedade, espaço, arqueologia">
+  
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta id="og-title" property="og:title" content="Mente Curiosa | Explore o Desconhecido">
+  <meta id="og-description" property="og:description" content="Um universo de curiosidades fascinantes espera por você. Artigos sobre história, ciência, e os maiores mistérios do mundo.">
+  <meta id="og-image" property="og:image" content="https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg">
+  <meta property="og:type" content="website">
+  <meta id="og-url" property="og:url" content="https://blog-mente-curiosa.vailink.pro">
 
-        body {
-            background-color: var(--dark-blue);
-            font-family: 'Roboto Condensed', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            color: white;
-            text-align: center;
-            overflow: hidden;
-        }
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta id="twitter-title" name="twitter:title" content="Mente Curiosa | Explore o Desconhecido">
+  <meta id="twitter-description" name="twitter:description" content="Um universo de curiosidades fascinantes espera por você. Artigos sobre história, ciência, e os maiores mistérios do mundo.">
+  <meta id="twitter-image" name="twitter:image" content="https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg">
 
-        .simulation-container {
-            width: 95%;
-            max-width: 500px;
-            padding: 2rem;
-            background: rgba(var(--dark-blue-rgb), 0.5);
-            border-radius: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+  <!-- Schema.org Data -->
+  <script type="application/ld+json" id="schema-data"></script>
+  
+  <!-- Stylesheets and Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
 
-        h1 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 3rem;
-            color: var(--gold);
-            text-shadow: 0 0 10px var(--gold);
-            margin-bottom: 0.5rem;
-        }
-
-        p {
-            font-size: 1.2rem;
-            color: #ccc;
-            margin-bottom: 2rem;
-        }
-
-        .slot-machine {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-            background: #000;
-            padding: 1rem;
-            border-radius: 10px;
-            border: 4px solid var(--gold);
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
-        }
-
-        .reel {
-            width: 100px;
-            height: 100px;
-            border: 2px solid #333;
-            background: #111;
-            margin: 0 5px;
-            overflow: hidden;
-            border-radius: 5px;
-        }
-        
-        .reel-inner {
-            transition: transform 3s cubic-bezier(0.33, 1, 0.68, 1); /* Ease out back */
-        }
-
-        .symbol {
-            width: 100px;
-            height: 100px;
-            font-size: 5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #spin-button {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2rem;
-            padding: 1rem 3rem;
-            cursor: pointer;
-            background: linear-gradient(145deg, #f9a825, #fdd835);
-            color: #333;
-            border: none;
-            border-radius: 10px;
-            text-transform: uppercase;
-            box-shadow: 0 5px 0 #c78600;
-            transition: all 0.1s ease-in-out;
-        }
-
-        #spin-button:active {
-            transform: translateY(5px);
-            box-shadow: 0 0px 0 #c78600;
-        }
-
-        #spin-button:disabled {
-            background: #555;
-            color: #888;
-            cursor: not-allowed;
-            box-shadow: 0 5px 0 #333;
-        }
-
-        /* Winnings Modal */
-        #winnings-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(5px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s, visibility 0.5s;
-        }
-        
-        #winnings-modal.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            background: var(--dark-blue);
-            padding: 3rem;
-            border-radius: 20px;
-            border: 3px solid var(--gold);
-            box-shadow: 0 0 30px var(--gold);
-            text-align: center;
-            transform: scale(0.5);
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        
-        #winnings-modal.visible .modal-content {
-             transform: scale(1);
-        }
-
-        .modal-content h2 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 4rem;
-            color: white;
-            margin: 0;
-        }
-
-        .winnings-amount {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 6rem;
-            color: var(--gold);
-            margin: 1rem 0;
-            letter-spacing: 5px;
-            text-shadow: 0 0 15px var(--gold);
-        }
-
-        #claim-button {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2.5rem;
-            padding: 1rem 3rem;
-            cursor: pointer;
-            background: linear-gradient(145deg, #4caf50, #81c784); /* Green */
-            color: white;
-            border: none;
-            border-radius: 10px;
-            text-transform: uppercase;
-            box-shadow: 0 5px 0 #2e7d32;
-            transition: all 0.1s ease-in-out;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-        #claim-button:hover {
-            transform: translateY(-2px);
-        }
-         #claim-button:active {
-            transform: translateY(5px);
-            box-shadow: 0 0px 0 #2e7d32;
-        }
-
-        .disclaimer {
-            font-size: 0.8rem;
-            color: #777;
-            margin-top: 1.5rem;
-        }
-    </style>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Lora', 'serif'], display: ['Poppins', 'sans-serif'] } } } }
+  </script>
+  <style>
+    .section-transition { animation: fadeIn 0.5s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .promo-banner { background: linear-gradient(45deg, #1a2a6c, #b21f1f, #fdbb2d); }
+    .promo-btn { transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+    .promo-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+  </style>
 </head>
-<body>
+<body class="bg-gray-50 font-sans text-gray-800">
 
-    <div class="simulation-container">
-        <h1>BÓNUS DE BOAS-VINDAS</h1>
-        <p>Gire a máquina para revelar o seu prémio exclusivo!</p>
+  <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-40">
+    <div class="container mx-auto px-4"><div class="flex justify-between items-center py-4"><a href="#" id="logo" class="text-2xl font-bold font-serif text-blue-600">Mente Curiosa</a><nav class="hidden md:flex items-center space-x-4"><a id="linkHome" href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Início</a><a id="linkCat" href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Categorias</a><a id="linkAbout" href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Sobre Nós</a><div class="relative"><input type="text" id="inpSearch" placeholder="Pesquisar..." class="border border-gray-300 rounded-full py-1.5 px-4 w-64 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"></div></nav><button id="btnNav" class="md:hidden text-gray-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button></div></div><nav id="navMenu" class="md:hidden bg-white shadow-lg hidden"><a href="#" id="linkHomeMobile" class="block py-3 px-4 text-gray-600 hover:bg-gray-100">Início</a><a href="#" id="linkCatMobile" class="block py-3 px-4 text-gray-600 hover:bg-gray-100">Categorias</a><a href="#" id="linkAboutMobile" class="block py-3 px-4 text-gray-600 hover:bg-gray-100">Sobre Nós</a><div class="p-4"><input type="text" id="inpSearchMobile" placeholder="Pesquisar..." class="border border-gray-300 rounded-full py-2 px-4 w-full"></div></nav>
+  </header>
+  <main class="container mx-auto px-4 py-8"><div id="content-area"></div></main>
+  <footer class="bg-gray-800 text-white mt-12"><div class="container mx-auto px-4 py-8 text-center text-sm text-gray-400"><p>&copy; 2025 Mente Curiosa. Todos os direitos reservados.</p><p class="mt-2">Jogos de azar podem ser viciantes. Jogue com responsabilidade. Apenas para maiores de 18 anos.</p></div></footer>
+  <button id="btnTop" class="hidden fixed bottom-5 right-5 bg-blue-600 hover:bg-blue-700 text-white rounded-full p-3 shadow-lg transition-opacity z-50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></button>
+  
+  <!-- POP-UPS -->
+  <div id="popTimed" class="fixed bottom-5 left-5 bg-white shadow-xl rounded-lg w-80 transform translate-x-[-200%] opacity-0 transition-all duration-500 z-50 overflow-hidden"><a id="popTimedLink" href="#" target="_blank" class="block p-4 cursor-pointer"><div class="flex items-center gap-4"><div><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M21 11V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6"/><path d="M16 16h6"/><path d="M19 13v6"/><path d="M3 10h18"/></svg></div><div><h4 class="font-bold">Sua Chance de Ganhar!</h4><p class="text-sm text-gray-600">Oferta especial para leitores. Clique e descubra!</p></div></div></a><button id="popClose" class="absolute top-2 right-2 text-gray-400 hover:text-gray-700"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+  <div id="popExit" class="fixed inset-0 bg-black/70 flex items-center justify-center p-4 opacity-0 invisible transition-opacity duration-300 z-50"><div id="exitBox" class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full text-center transform scale-95 transition-transform duration-300 relative"><button id="popExitClose" class="absolute -top-2 -right-2 bg-white rounded-full p-1 shadow-md text-gray-500 hover:text-gray-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><h2 class="text-3xl font-display font-bold text-red-600 mb-2">ESPERE! 50 JOGADAS GRÁTIS</h2><p class="text-gray-600 mb-6">Não perca esta oferta exclusiva! Registe-se agora e receba 50 jogadas grátis para começar a ganhar.</p><a id="popExitLink" href="#" target="_blank" class="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-md transition-colors promo-btn text-lg">QUERO MINHAS JOGADAS!</a></div></div>
+  <!-- NOVO POP-UP DE SCROLL -->
+  <div id="popScroll" class="fixed bottom-5 right-5 bg-gray-800 text-white shadow-xl rounded-lg max-w-sm w-full transform translate-y-[200%] opacity-0 transition-all duration-700 z-50 overflow-hidden"><a id="popScrollLink" href="#" target="_blank" class="block p-5 cursor-pointer"><h4 class="font-display font-bold text-xl text-yellow-300 mb-2">Gostou do que leu?</h4><p class="text-gray-300">Há muito mais para descobrir. A sua próxima grande aventura (ou sorte grande) está a um clique de distância. Não espere mais!</p><a id="popScrollBtn" href="#" target="_blank" class="inline-block mt-4 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-2 px-5 rounded-md promo-btn">EXPLORAR AGORA</a></a><button id="popScrollClose" class="absolute top-2 right-2 text-gray-400 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
 
-        <div class="slot-machine">
-            <div class="reel">
-                <div class="reel-inner" id="reel1">
-                    <div class="symbol">🍒</div>
-                    <div class="symbol">🍋</div>
-                    <div class="symbol" data-win="true">💎</div>
-                    <div class="symbol">💰</div>
-                </div>
-            </div>
-            <div class="reel">
-                 <div class="reel-inner" id="reel2">
-                    <div class="symbol">🍋</div>
-                    <div class="symbol">💰</div>
-                    <div class="symbol" data-win="true">💎</div>
-                    <div class="symbol">🍒</div>
-                </div>
-            </div>
-            <div class="reel">
-                 <div class="reel-inner" id="reel3">
-                    <div class="symbol">💰</div>
-                    <div class="symbol">🍒</div>
-                    <div class="symbol" data-win="true">💎</div>
-                    <div class="symbol">🍋</div>
-                </div>
-            </div>
-        </div>
+  <script>
+    // --- CONFIG & DATABASE ---
+    const affiliateLink = 'https://record.elephantbet.com/_rhoOOvBxBOAWqcfzuvZcQGNd7ZgqdRLk/1/'; 
+    const domainName = 'https://blog-mente-curiosa.vailink.pro';
 
-        <button id="spin-button">GIRAR!</button>
-    </div>
+    const posts = [
+      { id: 1, title: 'O Código que Ninguém Consegue Quebrar: O Enigmático Manuscrito Voynich', cat: 'Mistérios', date: '2025-06-21', author: 'Redação', tags: ['manuscrito voynich', 'criptografia', 'mistérios sem solução'], img: 'https://i.ibb.co/cXyD1F2X/Image-fx-4.png', content: `<p>Imagine um livro antigo, escrito numa língua que ninguém consegue decifrar e ilustrado com plantas que não existem na Terra. Esse é o Manuscrito Voynich, um dos maiores mistérios criptográficos e bibliográficos do mundo.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Origem Misteriosa</h3><p>Datado do início do século XV, o manuscrito de 240 páginas ressurgiu em 1912, quando foi adquirido pelo livreiro Wilfrid Voynich. Desde então, criptógrafos, linguistas e historiadores, incluindo decifradores de códigos da Segunda Guerra Mundial, tentaram sem sucesso quebrar seu código.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Conteúdo Enigmático</h3><p>As ilustrações são igualmente confusas. Divididas em seções — botânica, astronômica, biológica e farmacêutica —, elas retratam plantas irreconhecíveis, diagramas astrológicos estranhos e figuras humanas banhando-se em complexos sistemas de tubulações com um líquido verde. A estrutura do texto parece seguir regras, o que sugere que não é aleatório, mas até hoje, permanece um segredo indecifrado.</p>` },
+      { id: 2, title: 'O Quokka: Conheça o Animal Mais Feliz do Mundo', cat: 'Animais', date: '2025-06-21', author: 'Redação', tags: ['quokka', 'animais fofos', 'austrália'], img: 'https://i.ibb.co/VYdm6Dw6/Image-fx-3.png', content: `<p>Prepare-se para uma overdose de fofura! Se você acha que já viu de tudo no reino animal, espere até conhecer o quokka. Este pequeno marsupial, originário de algumas ilhas remotas na costa da Austrália, ganhou um título muito especial e merecido na internet: o de "animal mais feliz do mundo".</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">O Sorriso Contagiante</h3><p>O motivo? Basta olhar para qualquer foto dele! Com uma estrutura facial única, o quokka parece estar sempre com um sorriso amigável e contagiante no rosto. Essa expressão adorável transformou-o em uma verdadeira celebridade, com milhares de turistas viajando para a Ilha Rottnest, seu principal habitat, na esperança de conseguir uma selfie com ele.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Pequeno Sobrevivente</h3><p>Mas não se engane pelo seu tamanho, que é semelhante ao de um gato doméstico. O quokka é um sobrevivente. Como outros marsupiais, as fêmeas carregam seus filhotes em uma bolsa na barriga. Eles são herbívoros e se alimentam principalmente de folhas e cascas, sendo capazes de ficar longos períodos sem beber água. Apesar de sua natureza dócil, é importante lembrar que eles são animais selvagens e sua população é classificada como vulnerável.</p>` },
+      { id: 3, title: 'A Biblioteca Humana: Onde Pessoas se Tornam Livros e Contam Suas Histórias', cat: 'Sociedade e Comportamento', date: '2025-06-22', author: 'Redação', tags: ['inclusão', 'empatia', 'histórias reais'], img: 'https://i.ibb.co/8gcGbqHn/Image-fx-5.png', content: `<p>E se, em vez de pegar um livro de uma prateleira, você pudesse "pegar emprestada" uma pessoa para ouvir sua história de vida? Essa é a premissa fascinante da "Biblioteca Humana", um projeto inovador que busca combater preconceitos de uma forma brilhante: através do diálogo.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Como Funciona?</h3><p>Nesse evento, os "livros" são voluntários de diferentes origens que enfrentam estigmas: refugiados, pessoas transgênero, ex-dependentes químicos, etc. O "leitor" escolhe um título e tem uma conversa de 30 minutos, podendo fazer perguntas e ouvir em primeira mão as vivências daquela pessoa.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Quebrando Barreiras</h3><p>A Biblioteca Humana cria um espaço seguro para o diálogo honesto, onde perguntas difíceis podem ser feitas sem julgamento. É uma oportunidade única de olhar além dos rótulos e descobrir a humanidade que todos compartilhamos, mostrando que a conversa é a ferramenta mais poderosa para construir pontes e gerar empatia.</p>` },
+      { id: 4, title: 'A "Música" dos Planetas: Ouça os Sons Assustadoramente Belos do Nosso Sistema Solar', cat: 'Espaço', date: '2025-06-23', author: 'Redação', tags: ['astronomia', 'ciência', 'sons do espaço'], img: 'https://i.ibb.co/QjDPD5SZ/Image-fx-6.png', content: `<p>Estamos acostumados a ver imagens espetaculares de planetas, mas você já parou para pensar em como eles "soam"? O espaço não é um silêncio absoluto. Graças a sondas da NASA, que converteram ondas de rádio e plasma em som, agora podemos ouvir a "sinfonia" do nosso sistema solar.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Sons de Outro Mundo</h3><p>Cada corpo celeste tem sua própria "voz". Júpiter, com suas poderosas auroras, gera emissões que soam como uivos de outro mundo. Os anéis de Saturno produzem um coro etéreo e complexo de estalos e assobios. Até a Terra tem sua "música", uma coleção de sons que inclui o barulho de raios e o assobio da nossa magnetosfera.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Uma Nova Conexão</h3><p>Ouvir esses sons é uma experiência única e assustadoramente bela. É uma forma de se conectar com o cosmos em um nível totalmente novo, transformando pontos de luz distantes em mundos dinâmicos e vibrantes. Prepare seus fones de ouvido e embarque nesta viagem auditiva pelo espaço.</p>` },
+      { id: 5, title: 'A Lâmpada Centenária: A Incrível História da Lâmpada que Está Acesa Há Mais de 120 Anos', cat: 'Ciência e Tecnologia', date: '2025-06-21', author: 'Redação', tags: ['mistério', 'história', 'tecnologia'], img: 'https://i.ibb.co/4gCN8b9B/Image-fx-2.png', content: `<p>Você consegue imaginar uma lâmpada que funciona ininterruptamente desde 1901? Parece ficção científica, mas ela existe e é um dos objetos mais intrigantes do mundo! Localizada em um quartel de bombeiros na cidade de Livermore, Califórnia, a "Lâmpada Centenária" desafia tudo o que sabemos sobre a vida útil de um produto e a lógica da obsolescência programada.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Um Legado Luminoso</h3><p>Ligada há mais de um século, com pouquíssimas e breves interrupções, essa lâmpada se tornou uma lenda local e um objeto de estudo. Como ela consegue durar tanto tempo? As teorias apontam para a qualidade de sua construção e um filamento de carbono especial.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Mais que uma Lâmpada</h3><p>A Lâmpada Centenária é um testemunho de uma era da engenharia onde produtos eram feitos para durar. Ela está no Guinness World Records e possui até uma webcam transmitindo seu brilho constante. Uma verdadeira maravilha tecnológica e um enigma fascinante!</p>` },
+      { id: 6, title: 'A Água-viva Imortal: O Animal que Descobriu o Segredo da Juventude Eterna', cat: 'Biologia', date: '2025-06-24', author: 'Redação', tags: ['biologia', 'imortalidade', 'vida marinha'], img: 'https://i.ibb.co/rGQw20RY/Image-fx-7.png', content: `<p>A busca pela imortalidade é um tema antigo na história humana, mas uma pequena criatura marinha parece já ter desvendado esse segredo. Conheça a Turritopsis dohrnii, popularmente conhecida como a água-viva imortal, o único animal conhecido capaz de reverter seu processo de envelhecimento.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">O Ciclo da Vida ao Contrário</h3><p>Diferente de todos os outros animais, quando esta água-viva atinge a maturidade sexual e enfrenta algum tipo de estresse ambiental, dano físico ou simplesmente a velhice, ela pode reverter ao seu estágio de pólipo, a sua forma juvenil. É como se uma borboleta pudesse voltar a ser uma lagarta para recomeçar a vida.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">O Segredo Celular</h3><p>Esse processo milagroso é chamado de transdiferenciação, onde as células de um tipo podem se transformar em outro tipo de célula, regenerando o corpo por completo. Embora não seja imune a predadores ou doenças, sua capacidade de escapar da morte por envelhecimento a torna biologicamente imortal, um verdadeiro enigma da natureza que continua a fascinar os cientistas.</p>` },
+      { id: 7, title: 'O Efeito Placebo: Como uma Pílula de Açúcar Pode Realmente Curar Você?', cat: 'Ciência e Saúde', date: '2025-06-25', author: 'Redação', tags: ['efeito placebo', 'medicina', 'psicologia'], img: 'https://i.ibb.co/1YHZK5gp/Image-fx-8.png', content: `<p>É um dos fenômenos mais fascinantes e misteriosos da medicina: uma pílula sem nenhum composto ativo, feita apenas de açúcar, pode aliviar dores, diminuir sintomas e promover curas reais. Esse é o poder do efeito placebo, a prova definitiva da incrível conexão entre a mente e o corpo.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">O Poder da Crença</h3><p>O efeito placebo ocorre quando um paciente acredita que está recebendo um tratamento real e experimenta uma melhora em sua condição, mesmo que o "remédio" seja inerte. Não se trata de "imaginação". Estudos mostram que o cérebro, ao acreditar na cura, pode liberar endorfinas (analgésicos naturais) e dopamina, alterando a percepção da dor e o bem-estar.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Mais que uma Pílula</h3><p>O fenômeno não se limita a pílulas. A cor do comprimido, a embalagem, a autoridade do médico e até o preço de um tratamento podem influenciar a potência do efeito placebo. Ele demonstra que o ritual do cuidado e a expectativa de melhora são componentes poderosos da cura, desafiando a medicina a entender como aproveitar essa força interior para o bem-estar dos pacientes.</p>` },
+      { id: 8, title: "A Ilha de Lixo do Pacífico: O Chocante 'Continente' Flutuante que Nós Criamos", cat: 'Meio Ambiente', date: '2025-06-26', author: 'Redação', tags: ['meio ambiente', 'poluição', 'oceanos'], img: 'https://i.ibb.co/WWXd6ssY/Image-fx-9.png', content: `<p>No meio do Oceano Pacífico, existe um "continente" que não aparece nos mapas, uma nação flutuante feita não de terra, mas de lixo. A Grande Mancha de Lixo do Pacífico é uma das mais chocantes e visíveis consequências do nosso consumo de plástico, uma vasta área onde as correntes oceânicas acumularam milhões de toneladas de detritos.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Uma Sopa Plástica</h3><p>Não se trata de uma ilha sólida onde se pode caminhar. Na verdade, é mais como uma sopa difusa, com partículas de plástico, grandes e pequenas (microplásticos), flutuando desde a superfície até o fundo do oceano. Estima-se que sua área seja maior que os estados do Amazonas e do Mato Grosso juntos.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Impacto Silencioso</h3><p>O impacto na vida marinha é devastador. Animais como tartarugas, aves e mamíferos marinhos confundem o plástico com comida ou ficam presos nos detritos. Além disso, os microplásticos entram na cadeia alimentar, chegando até nós. Esta ilha de lixo é um lembrete sombrio da nossa responsabilidade e da urgência em repensar nosso uso do plástico.</p>` },
+      { id: 9, title: 'Helike: A Verdadeira Atlântida? A Cidade Grega que Desapareceu em Uma Noite', cat: 'História e Arqueologia', date: '2025-06-27', author: 'Redação', tags: ['história antiga', 'arqueologia', 'cidades perdidas'], img: 'https://i.ibb.co/WWC5Hb7b/Image-fx-10.png', content: `<p>Muito antes da lenda de Atlântida cativar o mundo, uma cidade real e próspera na Grécia Antiga sofreu um destino semelhante. No inverno de 373 a.C., a cidade de Helike, um importante centro cultural e religioso, desapareceu do mapa em uma única e catastrófica noite.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Fúria da Natureza</h3><p>Relatos antigos contam que um violento terremoto sacudiu a região, seguido por um tsunami massivo que varreu a cidade e a submergiu sob as águas do Golfo de Corinto. Por séculos, Helike foi apenas uma lenda, um conto de advertência sobre a ira dos deuses, especialmente Poseidon, o deus dos mares e terremotos.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">A Redescoberta</h3><p>Após décadas de busca, em 2001, uma equipe de arqueólogos finalmente localizou os restos da cidade, enterrados sob metros de sedimentos. A descoberta de Helike não apenas confirmou os relatos antigos, mas também nos deu um vislumbre extraordinário de uma cápsula do tempo da Grécia Clássica, uma verdadeira Atlântida resgatada das profundezas da história.</p>` },
+      { id: 10, title: 'As Catacumbas de Paris: Um Império de Ossos Sob a Cidade Luz', cat: 'Lugares e Viagens', date: '2025-06-28', author: 'Redação', tags: ['paris', 'lugares misteriosos', 'história'], img: 'https://i.ibb.co/PvygGK3F/Image-fx-11.png', content: `<p>Vinte metros abaixo das ruas movimentadas de Paris, a Cidade Luz, existe um mundo sombrio e silencioso, um labirinto macabro que guarda um dos segredos mais fascinantes da capital francesa. As Catacumbas de Paris são um ossuário subterrâneo que abriga os restos mortais de mais de seis milhões de pessoas.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Uma Solução Prática</h3><p>No final do século XVIII, os cemitérios de Paris estavam superlotados, causando graves problemas de saúde pública. A solução foi transferir os ossos para os túneis de antigas pedreiras de calcário que existiam sob a cidade. O que começou como uma operação logística se transformou em algo mais.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Uma Obra de Arte Macabra</h3><p>Em vez de simplesmente empilhar os ossos, os trabalhadores os arranjaram em padrões decorativos, criando paredes de crânios e fêmures, corredores e salas com uma atmosfera única e assustadora. Hoje, uma pequena parte das catacumbas está aberta ao público, oferecendo uma viagem inesquecível pela história oculta e sombria de Paris.</p>` }
+    ];
 
-    <div id="winnings-modal">
-        <div class="modal-content">
-            <h2>PARABÉNS!</h2>
-            <p>Você ganhou um prémio de:</p>
-            <div id="winnings-amount" class="winnings-amount">0 MT</div>
-            <p>Para sacar o seu prémio e começar a jogar a sério...</p>
-            <a href="https://media1.placard.co.mz/redirect.aspx?pid=5905&bid=1690" target="_blank" id="claim-button">Criar Conta e Levantar!</a>
-            <p class="disclaimer">Ao criar a sua conta, receberá um bónus de boas-vindas para ganhar prémios reais. Isto é um potencial de ganho.</p>
-        </div>
-    </div>
+    // --- SEO FUNCTIONS ---
+    function updateMetaTags(page, post = null) {
+      const get = (id) => document.getElementById(id);
+      let title, description, keywords, imageUrl;
+      const defaultTitle = 'Mente Curiosa | Explore o Desconhecido';
+      const defaultDesc = 'Explore um universo de curiosidades fascinantes. Artigos sobre história, ciência, mistérios e as maravilhas do mundo. A sua jornada pelo conhecimento começa aqui.';
+      const defaultKeywords = 'curiosidades, blog, história, ciência, mistérios, animais, tecnologia, sociedade, espaço, arqueologia';
+      const defaultImage = 'https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg'; 
 
+      if (page === 'article' && post) {
+        title = `${post.title} | Mente Curiosa`;
+        description = post.content.substring(3, 155).replace(/<[^>]*>/g, '') + '...';
+        keywords = post.tags.join(', ');
+        imageUrl = post.img;
+      } else {
+        title = defaultTitle;
+        description = defaultDesc;
+        keywords = defaultKeywords;
+        imageUrl = defaultImage;
+      }
 
-    <script>
-        const spinButton = document.getElementById('spin-button');
-        const reels = [document.getElementById('reel1'), document.getElementById('reel2'), document.getElementById('reel3')];
-        const winningsModal = document.getElementById('winnings-modal');
-        const winningsAmountElement = document.getElementById('winnings-amount');
-        const winningAmount = 25000; // O valor do prémio que quer mostrar
+      document.title = title;
+      get('meta-description').setAttribute('content', description);
+      get('meta-keywords').setAttribute('content', keywords);
+      
+      get('og-title').setAttribute('content', title);
+      get('og-description').setAttribute('content', description);
+      get('og-image').setAttribute('content', imageUrl);
+      get('twitter-title').setAttribute('content', title);
+      get('twitter-description').setAttribute('content', description);
+      get('twitter-image').setAttribute('content', imageUrl);
+    }
+    
+    function updateSchema(page, post = null) {
+      const schemaTag = document.getElementById('schema-data');
+      let schema;
+      if (page === 'article' && post) {
+        schema = {
+          "@context": "https://schema.org", "@type": "BlogPosting",
+          "mainEntityOfPage": { "@type": "WebPage", "@id": `${domainName}/#article${post.id}` },
+          "headline": post.title,
+          "description": post.content.substring(3, 155).replace(/<[^>]*>/g, '') + '...',
+          "image": post.img,  
+          "author": { "@type": "Person", "name": post.author },  
+          "publisher": {
+            "@type": "Organization", "name": "Mente Curiosa",
+            "logo": { "@type": "ImageObject", "url": "https://i.ibb.co/JFxW4bmT/Gemini-Generated-Image-31uyzu31uyzu31uy-1.jpg" }
+          },
+          "datePublished": post.date
+        };
+      } else {
+        schema = {
+          "@context": "https://schema.org", "@type": "WebSite", "url": domainName, "name": "Mente Curiosa",
+          "potentialAction": { "@type": "SearchAction", "target": `${domainName}/#search?q={search_term_string}`, "query-input": "required name=search_term_string" }
+        };
+      }
+      schemaTag.textContent = JSON.stringify(schema, null, 2);
+    }
 
-        spinButton.addEventListener('click', () => {
-            // Desativar o botão para prevenir múltiplos cliques
-            spinButton.disabled = true;
-
-            reels.forEach((reel, i) => {
-                // Reset animation
-                reel.style.transition = 'none';
-                reel.style.transform = 'translateY(0)';
-                
-                setTimeout(() => {
-                     // Calcular a posição final do símbolo vencedor (💎)
-                    const winSymbol = reel.querySelector('[data-win="true"]');
-                    const winPosition = winSymbol.offsetTop;
-                    
-                    // Girar para a posição final
-                    reel.style.transition = `transform ${3 + i * 0.5}s cubic-bezier(0.33, 1, 0.68, 1)`;
-                    reel.style.transform = `translateY(-${winPosition}px)`;
-                }, 100); // Pequeno delay para o reset funcionar
-            });
-
-            // Mostrar o modal após a última bobina parar
-            setTimeout(() => {
-                winningsModal.classList.add('visible');
-                countUp(winningAmount);
-            }, 4500); // Tempo total da animação das bobinas
-        });
-        
-        function countUp(targetAmount) {
-            let currentAmount = 0;
-            const increment = targetAmount / 100; // Divide em 100 passos
-            const intervalTime = 20; // ms por passo
-
-            const counter = setInterval(() => {
-                currentAmount += increment;
-                if (currentAmount >= targetAmount) {
-                    currentAmount = targetAmount;
-                    clearInterval(counter);
-                }
-                winningsAmountElement.textContent = `${Math.floor(currentAmount).toLocaleString('pt-PT')} MT`;
-            }, intervalTime);
-        }
-
-    </script>
-
+    // --- TEMPLATES & CORE LOGIC ---
+    const contentArea = document.getElementById('content-area');
+    const homeTemplate = (postsData) => `<section id="secHome" class="section-transition"><div class="bg-blue-600 text-white rounded-lg p-8 md:p-16 mb-8 text-center bg-cover bg-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg')"><h1 class="text-4xl md:text-5xl font-bold font-serif mb-4">Bem-vindo à Mente Curiosa</h1><p class="text-lg md:text-xl text-blue-100">Toda grande descoberta começa com uma faísca: uma pergunta, uma dúvida, uma vontade de saber mais. Esta é a essência de uma mente curiosa. Que a nossa vontade de aprender nunca se apague</p></div>${heroAdTemplate()}<div id="grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">${renderGrid(postsData)}</div></section>`;
+    const heroAdTemplate = () => `<div class="promo-banner text-white rounded-lg p-8 mb-12 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left"><div><h2 class="text-3xl font-display font-bold">BÓNUS EXCLUSIVO!</h2><p class="text-yellow-200 mt-1">Dobre seu primeiro depósito e comece a ganhar hoje mesmo!</p></div><a href="${affiliateLink}" target="_blank" class="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-3 px-8 rounded-full text-lg promo-btn whitespace-nowrap">REIVINDICAR BÔNUS</a></div>`;
+    const categoriesTemplate = () => `<section id="secCat" class="section-transition"><h2 class="text-3xl font-bold font-serif mb-2">Categorias</h2><p class="text-gray-600 mb-8">Explore nossos artigos por categoria.</p><div id="catsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">${renderCats()}</div></section>`;
+    const aboutTemplate = () => `<section id="secAbout" class="section-transition bg-white p-8 rounded-lg shadow-md"><h2 class="text-3xl font-bold font-serif mb-4">Sobre Nós</h2><div class="prose max-w-none text-gray-700 leading-relaxed"><p>Somos um blog dedicado a explorar as mais fascinantes curiosidades do mundo, mergulhando em tópicos de história, ciência, tecnologia e cultura. Acreditamos que o conhecimento é uma aventura sem fim e que cada pergunta é o início de uma nova descoberta.</p><p>Nossa missão é saciar a sua sede de saber com artigos bem pesquisados, cativantes e acessíveis. Junte-se à comunidade Mente Curiosa e vamos explorar o desconhecido juntos!</p></div></section>`;
+    const articleTemplate = (post) => `<section id="secArt" class="section-transition"><div class="flex flex-col lg:flex-row gap-8"><div class="w-full lg:w-2/3"><button id="btnBack" class="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>Voltar à Lista</button><article class="bg-white p-6 sm:p-8 rounded-lg shadow-md"><header><img id="artImg" class="w-full h-auto max-h-96 object-cover rounded-lg mb-6" src="${post.img}" alt="${post.title}"><h1 id="artTitle" class="text-3xl md:text-4xl font-bold font-serif text-gray-900 leading-tight mb-3">${post.title}</h1><p id="artMeta" class="text-gray-500 text-sm mb-6">Publicado em ${new Date(post.date).toLocaleDateString('pt-PT', {day:'numeric', month:'long', year:'numeric'})} • ${post.cat} • por ${post.author}</p></header><div id="artContent" class="prose max-w-none text-gray-700 leading-relaxed space-y-4">${insertInArticleAd(post.content)}</div></article></div><aside class="w-full lg:w-1/3"><div class="space-y-8 sticky top-24">${sidebarAdTemplate()}<div class="widget bg-white p-6 rounded-lg shadow-md"><h3 class="font-serif font-bold text-xl border-b-2 border-blue-500 pb-2 mb-4">Populares</h3><ul id="wPopular" class="space-y-3">${fillWidgets(post.id).popular}</ul></div><div class="widget bg-white p-6 rounded-lg shadow-md"><h3 class="font-serif font-bold text-xl border-b-2 border-blue-500 pb-2 mb-4">Tags</h3><div id="wTags" class="flex flex-wrap gap-2">${fillWidgets(post.id).tags}</div></div></div></aside></div></section>`;
+    const sidebarAdTemplate = () => `<div class="widget bg-gray-800 p-6 rounded-lg shadow-md text-white text-center"><h3 class="font-display font-bold text-2xl text-yellow-300">A Sorte Chama!</h3><p class="my-4">Experimente os melhores jogos e ofertas exclusivas para leitores.</p><a href="${affiliateLink}" target="_blank" class="block w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-md transition-colors promo-btn">JOGAR AGORA</a></div>`;
+    const inArticleAdTemplate = () => `<div class="my-8 p-6 bg-yellow-50 border-2 border-dashed border-yellow-400 rounded-lg text-center"><h4 class="font-display font-bold text-xl text-yellow-800">Oferta Especial Para Leitores</h4><p class="text-yellow-700 my-2">Use o código <strong class="bg-yellow-200 px-2 py-1 rounded">LEITORVIP</strong> e ganhe 100% de bônus no seu primeiro depósito!</p><a href="${affiliateLink}" target="_blank" class="inline-block mt-2 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-md transition-colors promo-btn">APROVEITAR OFERTA</a></div>`;
+    const renderPage = (page, data = null) => { contentArea.innerHTML = ''; let template = ''; switch(page) { case 'home': template = homeTemplate(data || posts); contentArea.innerHTML = template; break; case 'categories': template = categoriesTemplate(); contentArea.innerHTML = template; break; case 'about': template = aboutTemplate(); contentArea.innerHTML = template; break; case 'article': template = articleTemplate(data); contentArea.innerHTML = template; setupArticlePage(); break; } updateMetaTags(page, data); updateSchema(page, data); window.scrollTo(0, 0); };
+    function renderGrid(list) { if (list.length === 0) { return '<p class="col-span-full text-center text-gray-500">Nenhum artigo encontrado.</p>'; } return list.map(p => `<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer card" data-id="${p.id}"><img src="${p.img}" alt="${p.title}" class="w-full h-48 object-cover"><div class="p-5 flex flex-col flex-grow"><p class="text-sm text-blue-600 font-semibold">${p.cat}</p><h2 class="text-lg font-bold font-serif mt-2 mb-4 flex-grow">${p.title}</h2><p class="text-xs text-gray-500">${new Date(p.date).toLocaleDateString('pt-PT', {day:'numeric', month:'long', year:'numeric'})}</p></div></div>`).join(''); }
+    function renderCats() { const uniqueCats = [...new Set(posts.map(p => p.cat))]; return uniqueCats.map(c => `<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer text-center card" data-category="${c}"><img src="https://placehold.co/600x400/F3F4F6/1F2937?text=${c}" alt="${c}" class="w-full h-48 object-cover"><div class="p-5"><h2 class="text-xl font-bold font-serif">${c}</h2></div></div>`).join('');}
+    function insertInArticleAd(content) { const paragraphs = content.split('</p>'); if (paragraphs.length < 2) return content; const middleIndex = Math.floor(paragraphs.length / 2); paragraphs.splice(middleIndex, 0, inArticleAdTemplate()); return paragraphs.join('</p>');}
+    function fillWidgets(currentId) { const popularPosts = posts.filter(p => p.id !== currentId).slice(0, 4); const popularHTML = popularPosts.map(p => `<li data-id="${p.id}" class="wPop cursor-pointer text-gray-700 hover:text-blue-600 transition-colors">${p.title}</li>`).join(''); const allTags = [...new Set(posts.flatMap(p => p.tags))]; const tagsHTML = allTags.map(t => `<span class="wTag cursor-pointer bg-gray-200 text-gray-700 text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-200 transition-colors">${t}</span>`).join(''); return { popular: popularHTML, tags: tagsHTML }; }
+    function setupArticlePage() { document.getElementById('btnBack').onclick = () => renderPage('home', posts); }
+    function setupEventListeners() { document.getElementById('logo').onclick = (e) => { e.preventDefault(); renderPage('home', posts); }; ['linkHome', 'linkHomeMobile'].forEach(id => document.getElementById(id).onclick = (e) => { e.preventDefault(); renderPage('home', posts); document.getElementById('navMenu').classList.add('hidden'); }); ['linkCat', 'linkCatMobile'].forEach(id => document.getElementById(id).onclick = (e) => { e.preventDefault(); renderPage('categories'); document.getElementById('navMenu').classList.add('hidden'); }); ['linkAbout', 'linkAboutMobile'].forEach(id => document.getElementById(id).onclick = (e) => { e.preventDefault(); renderPage('about'); document.getElementById('navMenu').classList.add('hidden'); }); document.getElementById('btnNav').onclick = () => { document.getElementById('navMenu').classList.toggle('hidden'); }; const handleSearch = (query) => { const q = query.toLowerCase(); const filtered = posts.filter(p => p.title.toLowerCase().includes(q) || p.tags.some(t => t.includes(q))); renderPage('home', filtered); } ; document.getElementById('inpSearch').oninput = (e) => handleSearch(e.target.value); document.getElementById('inpSearchMobile').oninput = (e) => handleSearch(e.target.value); document.body.addEventListener('click', e => { const card = e.target.closest('.card'); const popWidget = e.target.closest('.wPop'); const tagWidget = e.target.closest('.wTag'); if (card) { if (card.dataset.id) { const post = posts.find(p => p.id == card.dataset.id); if(post) renderPage('article', post); } else if (card.dataset.category) { const category = card.dataset.category; renderPage('home', posts.filter(p => p.cat === category)); } } else if (popWidget) { const post = posts.find(p => p.id == popWidget.dataset.id); if (post) renderPage('article', post); } else if (tagWidget) { const tag = tagWidget.textContent; renderPage('home', posts.filter(p => p.tags.includes(tag))); } }); const btnTop = document.getElementById('btnTop'); const popTimed = document.getElementById('popTimed'); const popExit = document.getElementById('popExit'); const exitBox = document.getElementById('exitBox'); const popScroll = document.getElementById('popScroll'); document.getElementById('popTimedLink').href = affiliateLink; document.getElementById('popExitLink').href = affiliateLink; document.getElementById('popScrollLink').href = affiliateLink; document.getElementById('popScrollBtn').href = affiliateLink; let exitIntentFired = false; let scrollPopupFired = false; window.onscroll = () => { btnTop.classList.toggle('hidden', window.scrollY < 300); const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100; if(scrollPercentage > 40 && !scrollPopupFired) { popScroll.classList.remove('translate-y-[200%]', 'opacity-0'); scrollPopupFired = true; } }; btnTop.onclick = () => window.scrollTo({ top: 0 }); setTimeout(() => { popTimed.classList.remove('translate-x-[-200%]', 'opacity-0'); }, 20000); document.getElementById('popClose').onclick = (e) => { e.preventDefault(); e.stopPropagation(); popTimed.style.display = 'none' }; document.getElementById('popScrollClose').onclick = (e) => { e.preventDefault(); e.stopPropagation(); popScroll.style.display = 'none' }; document.body.addEventListener('mouseleave', e => { if (e.clientY <= 0 && !exitIntentFired) { exitIntentFired = true; popExit.classList.remove('invisible'); popExit.classList.add('opacity-100'); exitBox.classList.remove('scale-95'); } }); const closeExitPopup = () => { popExit.classList.add('invisible'); popExit.classList.remove('opacity-100'); exitBox.classList.add('scale-95'); }; document.getElementById('popExitClose').onclick = closeExitPopup; popExit.onclick = e => { if (e.target === popExit) closeExitPopup(); }; }
+    document.addEventListener('DOMContentLoaded', () => { renderPage('home', posts); setupEventListeners(); });
+  </script>
 </body>
 </html>
