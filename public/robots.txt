@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://blog-mente-curiosa.vailink.pro/sitemap.xml
