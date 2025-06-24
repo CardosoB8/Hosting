@@ -66,6 +66,34 @@ function renderDynamicPage(req, res, post = null) {
     });
 }
 
+app.get('/sitemap.xml', (req, res) => {
+    try {
+        const baseUrl = 'https://blog-mente-curiosa.vailink.pro';
+        let xml = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+        
+        const pages = ['/', '/sobre-nos', '/categorias'];
+        pages.forEach(page => {
+            xml += `<url><loc>${baseUrl}${page}</loc></url>`;
+        });
+
+        posts.forEach(post => {
+            if (!post || !post.id || !post.title || !post.date) {
+                console.warn('AVISO: Post ignorado no sitemap por ter dados em falta:', post);
+                return;
+            }
+            const postSlug = post.title.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '');
+            xml += `<url><loc>${baseUrl}/posts/${post.id}/${postSlug}</loc><lastmod>${post.date}</lastmod></url>`;
+        });
+
+        xml += '</urlset>';
+        res.header('Content-Type', 'application/xml');
+        res.send(xml);
+    } catch (e) {
+        console.error("ERRO FATAL ao gerar sitemap:", e);
+        res.status(500).send("Erro interno ao gerar o sitemap.");
+    }
+});
+
 app.get('/posts.json', (req, res) => res.sendFile(path.join(__dirname, 'posts.json')));
 
 app.get('/posts/:id/:slug', (req, res) => {
