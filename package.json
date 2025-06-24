@@ -2,9 +2,9 @@
   "name": "blog-mente-curiosa-server",
   "version": "1.0.0",
   "description": "Servidor dinâmico para o blog Mente Curiosa",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
