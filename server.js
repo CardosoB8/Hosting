@@ -5,7 +5,6 @@ const cors = require('cors');
 
 const app = express();
 
-// Carrega os posts do ficheiro JSON
 let posts = [];
 try {
     const postsPath = path.join(__dirname, 'posts.json');
@@ -17,14 +16,12 @@ try {
     posts = [];
 }
 
-// Middlewares
 app.use(cors());
 app.use(express.json());
 
 const publicPath = path.join(__dirname, 'public');
 app.use(express.static(publicPath));
 
-// Função reutilizável para renderizar a página dinamicamente
 function renderDynamicPage(req, res, post = null) {
     const templatePath = path.join(publicPath, 'index.html');
     
@@ -37,17 +34,15 @@ function renderDynamicPage(req, res, post = null) {
         let pageTitle, metaDescription, imageUrl, postUrl, hydrationData;
         
         if (post) {
-            // Se for uma página de artigo
             pageTitle = `${post.title} | Mente Curiosa`;
             metaDescription = post.content.substring(0, 155).replace(/<[^>]*>/g, '').replace(/"/g, '&quot;').trim() + '...';
             imageUrl = post.img;
             postUrl = `https://${req.headers.host}${req.originalUrl}`;
             hydrationData = { currentPage: 'article', postData: post, allPosts: posts };
         } else {
-            // Se for a página principal (ou outra)
             pageTitle = 'Mente Curiosa | Explore o Desconhecido';
             metaDescription = 'Explore um universo de curiosidades fascinantes. Artigos sobre história, ciência, mistérios e as maravilhas do mundo.';
-            imageUrl = 'https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg'; // Imagem padrão
+            imageUrl = 'https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg';
             postUrl = `https://${req.headers.host}${req.originalUrl}`;
             hydrationData = { currentPage: 'home', postData: null, allPosts: posts };
         }
@@ -71,8 +66,6 @@ function renderDynamicPage(req, res, post = null) {
     });
 }
 
-// --- ROTAS ---
-
 app.get('/posts.json', (req, res) => res.sendFile(path.join(__dirname, 'posts.json')));
 
 app.get('/posts/:id/:slug', (req, res) => {
@@ -80,12 +73,10 @@ app.get('/posts/:id/:slug', (req, res) => {
     if (post) renderDynamicPage(req, res, post); else res.redirect('/');
 });
 
-// Rotas para as páginas principais, para que funcionem ao recarregar
 app.get('/categorias', (req, res) => renderDynamicPage(req, res));
 app.get('/categorias/:slug', (req, res) => renderDynamicPage(req, res));
 app.get('/sobre-nos', (req, res) => renderDynamicPage(req, res));
 app.get('/tags/:slug', (req, res) => renderDynamicPage(req, res));
 app.get('/', (req, res) => renderDynamicPage(req, res));
 
-// Exporta a app para a Vercel
 module.exports = app;
