@@ -1,114 +1,71 @@
-const express = require('express');
-const fs = require('fs');
-const path = require('path');
-const cors = require('cors');
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="icon" type="image/jpeg" href="https://i.ibb.co/4gKbLChm/Round-Photo-Jun232025-114959.png">
+  <link rel="apple-touch-icon" href="https://i.ibb.co/4gKbLChm/Round-Photo-Jun232025-114959.png">
+  
+  <title>Mente Curiosa | Explore o Desconhecido</title>
+  <meta id="meta-description" name="description" content="Explore um universo de curiosidades fascinantes. Artigos sobre história, ciência, mistérios e as maravilhas do mundo. A sua jornada pelo conhecimento começa aqui.">
+  <meta id="og-title" property="og:title" content="Mente Curiosa | Explore o Desconhecido">
+  <meta id="og-description" property="og:description" content="Um universo de curiosidades fascinantes espera por você. Artigos sobre história, ciência, e os maiores mistérios do mundo.">
+  <meta id="og-image" property="og:image" content="https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg">
+  <meta id="og-url" property="og:url" content="https://blog-mente-curiosa.vailink.pro">
+  <meta name="twitter:card" content="summary_large_image">
 
-const app = express();
-// A porta é gerida pela Vercel, por isso não precisamos da variável 'port' aqui.
-
-// Carrega os posts do ficheiro JSON
-let posts = [];
-try {
-    // ALTERAÇÃO 1: Usar path.join(__dirname, ...) para um caminho mais fiável
-    const postsPath = path.join(__dirname, 'posts.json');
-    const postsData = fs.readFileSync(postsPath, 'utf8');
-    posts = JSON.parse(postsData);
-    console.log("Posts carregados com sucesso.");
-} catch (error) {
-    console.error("ERRO CRÍTICO: Não foi possível carregar o posts.json.", error);
-    posts = [];
-}
-
-// Middlewares
-app.use(cors());
-app.use(express.json());
-
-// ALTERAÇÃO 2: Usar path.join(__dirname, ...) também para a pasta 'public'
-const publicPath = path.join(__dirname, 'public');
-app.use(express.static(publicPath));
-
-// A rota para o posts.json continua igual, mas agora o caminho de leitura será mais robusto
-app.get('/posts.json', (req, res) => {
-    // O caminho aqui também usa a nova abordagem
-    const postsFilePath = path.join(__dirname, 'posts.json');
-    res.sendFile(postsFilePath, (err) => {
-        if (err) {
-            console.error("Erro ao enviar posts.json:", err);
-            res.status(500).send("Não foi possível carregar os dados dos posts.");
-        }
-    });
-});
-
-// Função reutilizável para renderizar a página dinamicamente
-function renderDynamicPage(req, res, post = null) {
-    // E aqui também, para encontrar o index.html
-    const templatePath = path.join(publicPath, 'index.html');
-    
-    fs.readFile(templatePath, 'utf8', (err, template) => {
-        if (err) {
-            console.error("Erro ao ler o template HTML (index.html):", err);
-            return res.status(500).send('Erro interno do servidor ao ler o template da página.');
-        }
-
-        // ... O resto da sua função renderDynamicPage continua exatamente igual ...
-        let pageTitle, metaDescription, imageUrl, postUrl, hydrationData;
-        
-        if (post) {
-            pageTitle = `${post.title} | Mente Curiosa`;
-            metaDescription = post.content.substring(0, 155).replace(/<[^>]*>/g, '').replace(/"/g, '&quot;').trim() + '...';
-            imageUrl = post.img;
-            postUrl = `https://${req.headers.host || 'blog-mente-curiosa.vailink.pro'}${req.originalUrl}`;
-            hydrationData = { currentPage: 'article', postData: post, allPosts: posts };
-        } else {
-            pageTitle = 'Mente Curiosa | Explore o Desconhecido';
-            metaDescription = 'Explore um universo de curiosidades fascinantes. Artigos sobre história, ciência, mistérios e as maravilhas do mundo.';
-            imageUrl = 'https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg';
-            postUrl = `https://${req.headers.host || 'blog-mente-curiosa.vailink.pro'}`;
-            hydrationData = { currentPage: 'home', postData: null, allPosts: posts };
-        }
-        
-        const hydrationScript = `<script id="hydration-data" type="application/json">${JSON.stringify(hydrationData)}</script>`;
-
-        let finalHtml = template
-            .replace(/<title>.*?<\/title>/, `<title>${pageTitle}</title>`)
-            .replace(/<meta id="meta-description".*?>/, `<meta id="meta-description" name="description" content="${metaDescription}">`)
-            .replace(/<meta id="og-title".*?>/, `<meta id="og-title" property="og:title" content="${pageTitle}">`)
-            .replace(/<meta id="og-description".*?>/, `<meta id="og-description" property="og:description" content="${metaDescription}">`)
-            .replace(/<meta id="og-image".*?>/, `<meta id="og-image" property="og:image" content="${imageUrl}">`)
-            .replace(/<meta id="og-url".*?>/, `<meta id="og-url" property="og:url" content="${postUrl}">`)
-            .replace(/<meta id="twitter-title".*?>/, `<meta name="twitter:title" content="${pageTitle}">`)
-            .replace(/<meta id="twitter-description".*?>/, `<meta name="twitter:description" content="${metaDescription}">`)
-            .replace(/<meta id="twitter-image".*?>/, `<meta name="twitter:image" content="${imageUrl}">`)
-            .replace('', hydrationScript); 
-        
-        res.setHeader('Content-Type', 'text/html');
-        res.send(finalHtml);
-    });
-}
-
-// --- ROTAS ---
-
-// Rota dinâmica para posts
-app.get('/posts/:id/:slug', (req, res) => {
-    const postId = parseInt(req.params.id);
-    const post = posts.find(p => p.id === postId);
-    if (post) {
-        renderDynamicPage(req, res, post);
-    } else {
-        res.redirect('/');
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Lora', 'serif'], display: ['Poppins', 'sans-serif'] } } } }</script>
+  <style>
+    .section-transition { animation: fadeIn 0.5s ease-in-out; } 
+    @keyframes fadeIn { 
+      from { opacity: 0; transform: translateY(10px); } 
+      to { opacity: 1; transform: translateY(0); } 
+    } 
+    .promo-btn:hover { transform: translateY(-2px); } 
+    .share-btn:hover { transform: scale(1.1); }
+    @keyframes gradient-animation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-});
+  </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
 
-// A rota da homepage
-app.get('/', (req, res) => {
-    renderDynamicPage(req, res);
-});
+  <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-40">
+    <div class="container mx-auto px-4"><div class="flex justify-between items-center py-4"><a href="/" id="logo" class="text-xl sm:text-2xl font-bold font-serif text-blue-600">Mente Curiosa</a><nav class="hidden md:flex items-center space-x-4"><a id="linkHome" href="/" class="text-gray-600 hover:text-blue-600 transition-colors">Início</a><a id="linkCat" href="/categorias" class="text-gray-600 hover:text-blue-600 transition-colors">Categorias</a><a id="linkAbout" href="/sobre-nos" class="text-gray-600 hover:text-blue-600 transition-colors">Sobre Nós</a><div class="relative"><input type="text" id="inpSearch" placeholder="Pesquisar..." class="border border-gray-300 rounded-full py-1.5 px-4 w-52 lg:w-64 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"></div></nav><button id="btnNav" class="md:hidden text-gray-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button></div></div><nav id="navMenu" class="md:hidden bg-white shadow-lg hidden"><a href="/" id="linkHomeMobile" class="block py-3 px-4 text-gray-600 hover:bg-gray-100">Início</a><a href="/categorias" id="linkCatMobile" class="block py-3 px-4 text-gray-600 hover:bg-gray-100">Categorias</a><a href="/sobre-nos" id="linkAboutMobile" class="block py-3 px-4 text-gray-600 hover:bg-gray-100">Sobre Nós</a><div class="p-4"><input type="text" id="inpSearchMobile" placeholder="Pesquisar..." class="border border-gray-300 rounded-full py-2 px-4 w-full"></div></nav>
+  </header>
 
+  <main class="container mx-auto px-4 py-8"><div id="content-area"></div></main>
+  <footer class="bg-gray-800 text-white mt-12"><div class="container mx-auto px-4 py-8 text-center text-sm text-gray-400"><p>&copy; 2025 Mente Curiosa. Todos os direitos reservados.</p><p class="mt-2">Explorando os cantos mais fascinantes do conhecimento.</p></div></footer>
+  <button id="btnTop" class="hidden fixed bottom-5 right-5 bg-blue-600 hover:bg-blue-700 text-white rounded-full p-3 shadow-lg transition-opacity z-50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></button>
 
-// ALTERAÇÃO 3: Remover o 'app.listen' e exportar a aplicação
-/*
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
-});
-*/
-module.exports = app;
+  <script>
+    function createSlug(text) { if (!text) return ''; const a = 'àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;'; const b = 'aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------'; const p = new RegExp(a.split('').join('|'), 'g'); return text.toString().toLowerCase().replace(/\s+/g, '-').replace(p, c => b.charAt(a.indexOf(c))).replace(/&/g, '-and-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '') }
+    const contentArea = document.getElementById('content-area');
+    const homeTemplate = (allPosts) => `<section id="secHome" class="section-transition"><div class="bg-blue-600 text-white rounded-lg p-8 md:p-12 lg:p-16 mb-8 text-center bg-cover bg-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg')"><h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-serif mb-4">Bem-vindo à Mente Curiosa</h1><p class="text-base md:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto">Toda grande descoberta começa com uma faísca: uma pergunta, uma dúvida, uma vontade de saber mais.</p></div>${heroAdTemplate()}<div id="grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">${renderGrid(allPosts)}</div></section>`;
+    const heroAdTemplate = () => `<div class="promo-banner relative bg-gradient-to-r from-slate-800 via-blue-900 to-slate-900 text-white rounded-lg p-6 md:p-8 mb-8 md:mb-12 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 text-center md:text-left overflow-hidden shadow-lg bg-[size:200%_200%] animate-[gradient-animation_8s_ease_infinite]"><div class="absolute -top-8 -right-8 text-yellow-300/10 w-40 h-40"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.75.75v3a.75.75 0 01-1.5 0v-3a.75.75 0 01.75-.75zM12 18a.75.75 0 01.75.75v3a.75.75 0 01-1.5 0v-3A.75.75 0 0112 18zM5.166 6.22a.75.75 0 011.06 1.06l-2.12 2.12a.75.75 0 01-1.06-1.06l2.12-2.12zM17.78 16.72a.75.75 0 011.06 1.06l-2.12 2.12a.75.75 0 11-1.06-1.06l2.12-2.12zM2.25 12a.75.75 0 01.75-.75h3a.75.75 0 010 1.5h-3a.75.75 0 01-.75-.75zM18 12a.75.75 0 01.75-.75h3a.75.75 0 010 1.5h-3a.75.75 0 01-.75-.75zM6.22 17.78a.75.75 0 011.06-1.06l2.12 2.12a.75.75 0 01-1.06 1.06l-2.12-2.12zM16.72 5.166a.75.75 0 011.06 1.06l-2.12 2.12a.75.75 0 01-1.06-1.06l2.12-2.12z"/></svg></div><div class="relative z-10"><h2 class="text-2xl md:text-3xl font-display font-bold">Curioso para Testar a Sorte?</h2><p class="text-blue-200 mt-2 text-sm md:text-base max-w-lg">Recomendamos esta plataforma pela sua fiabilidade e bónus especiais para novos exploradores.</p></div><a href="/oferta.html" target="_blank" class="relative z-10 bg-yellow-400 hover:bg-yellow-300 text-slate-900 font-bold py-3 px-8 rounded-full text-base md:text-lg promo-btn whitespace-nowrap transition-all duration-300 hover:shadow-xl hover:scale-105">CONHECER OFERTA</a></div>`;
+    const categoriesTemplate = (allPosts) => `<section id="secCat" class="section-transition"><h2 class="text-3xl font-bold font-serif mb-2">Categorias</h2><p class="text-gray-600 mb-8">Explore nossos artigos por categoria.</p><div id="catsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">${renderCats(allPosts)}</div></section>`;
+    const aboutTemplate = () => `<section id="secAbout" class="section-transition bg-white p-6 sm:p-8 rounded-lg shadow-md"><h2 class="text-3xl font-bold font-serif mb-4">Sobre Nós</h2><div class="prose max-w-none text-gray-700 leading-relaxed"><p>Olá! Sou o criador do 'Mente Curiosa', um apaixonado por desvendar os segredos do nosso mundo, desde os mistérios da história até às maravilhas da ciência. Criei este blog para partilhar estas descobertas com outros curiosos como eu, e para ajudar a financiar este projeto, faço parcerias com algumas plataformas que testei e considero de qualidade. Agradeço imensamente a sua confiança e o seu apoio nesta jornada. Vamos continuar a explorar o desconhecido juntos!</p></div></section>`;
+    const articleTemplate = (post, allPosts) => `<section id="secArt" class="section-transition"><div class="flex flex-col lg:flex-row gap-8"><div class="w-full lg:w-2/3"><a href="/" id="btnBack" class="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>Voltar à Lista</a><article class="bg-white p-6 sm:p-8 rounded-lg shadow-md"><header><img id="artImg" class="w-full h-auto max-h-96 object-cover rounded-lg mb-6" src="${post.img}" alt="${post.title}"><h1 id="artTitle" class="text-3xl md:text-4xl font-bold font-serif text-gray-900 leading-tight mb-3">${post.title}</h1><p id="artMeta" class="text-gray-500 text-sm mb-4">Publicado em ${new Date(post.date).toLocaleDateString('pt-PT', {day:'numeric', month:'long', year:'numeric'})} • ${post.cat} • por ${post.author}</p><div id="share-buttons-container" class="flex items-center gap-4 border-y py-3 mb-6">${shareButtonsTemplate()}</div></header><div id="artContent" class="prose max-w-none text-gray-700 leading-relaxed space-y-4">${post.content}</div><footer>${inArticleAdTemplate()}</footer></article></div><aside class="w-full lg:w-1/3"><div class="space-y-8 sticky top-24">${sidebarAdTemplate()}<div class="widget bg-white p-6 rounded-lg shadow-md"><h3 class="font-serif font-bold text-xl border-b-2 border-blue-500 pb-2 mb-4">Populares</h3><ul id="wPopular" class="space-y-3">${fillWidgets(post.id, allPosts).popular}</ul></div><div class="widget bg-white p-6 rounded-lg shadow-md"><h3 class="font-serif font-bold text-xl border-b-2 border-blue-500 pb-2 mb-4">Tags</h3><div id="wTags" class="flex flex-wrap gap-2">${fillWidgets(post.id, allPosts).tags}</div></div></div></aside></div></section>`;
+    const sidebarAdTemplate = () => `<div class="widget bg-gray-800 p-6 rounded-lg shadow-md text-white text-center"><h3 class="font-display font-bold text-xl md:text-2xl text-yellow-300">Recomendação do Editor</h3><p class="my-3 md:my-4 text-sm md:text-base">Para os nossos leitores que gostam de um desafio, recomendamos explorar as ofertas do nosso parceiro oficial.</p><a href="/oferta.html" target="_blank" class="block w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 md:py-3 px-4 rounded-md transition-colors promo-btn">VER OFERTA</a></div>`;
+    const inArticleAdTemplate = () => `<div class="mt-8 pt-6 border-t"><div class="p-6 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg text-left"><h4 class="font-display font-bold text-lg text-blue-800">Uma Dica do Autor</h4><p class="text-blue-700 my-2 text-sm md:text-base">Gosta de explorar e de um bom desafio? Para os nossos leitores mais curiosos, recomendo dar uma olhada na oferta especial do nosso parceiro de confiança.</p><a href="/oferta.html" target="_blank" class="inline-block mt-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-5 rounded-md transition-colors promo-btn text-sm">Descubra a Oferta</a></div></div>`;
+    const shareButtonsTemplate = () => ``;
+    function renderPage(page, data, allPosts) { contentArea.innerHTML = ''; let template = ''; switch(page) { case 'home': template = homeTemplate(data || allPosts); break; case 'categories': template = categoriesTemplate(allPosts); break; case 'about': template = aboutTemplate(); break; case 'article': template = articleTemplate(data, allPosts); break; } contentArea.innerHTML = template; if (page === 'article') setupArticlePage(data); window.scrollTo(0, 0); }
+    function renderGrid(list) { if (!list || list.length === 0) { return '<p class="col-span-full text-center text-gray-500 py-10">Nenhum artigo encontrado.</p>'; } return list.map(p => `<a href="/posts/${p.id}/${createSlug(p.title)}" class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer card"><img src="${p.img}" alt="${p.title}" class="w-full h-48 object-cover"><div class="p-5 flex flex-col flex-grow"><p class="text-sm text-blue-600 font-semibold">${p.cat}</p><h2 class="text-lg font-bold font-serif mt-2 mb-4 flex-grow">${p.title}</h2><p class="text-xs text-gray-500">${new Date(p.date).toLocaleDateString('pt-PT', {day:'numeric', month:'long', year:'numeric'})}</p></div></a>`).join(''); }
+    function renderCats(allPosts) { const uniqueCats = [...new Set(allPosts.map(p => p.cat))]; return uniqueCats.map(c => `<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer text-center card-category" data-category="${c}"><img src="https://placehold.co/600x400/F3F4F6/1F2937?text=${encodeURIComponent(c)}" alt="${c}" class="w-full h-48 object-cover"><div class="p-5"><h2 class="text-xl font-bold font-serif">${c}</h2></div></div>`).join('');}
+    function fillWidgets(currentId, allPosts) { const popularPosts = allPosts.filter(p => p.id !== currentId).slice(0, 4); const popularHTML = popularPosts.map(p => `<li><a href="/posts/${p.id}/${createSlug(p.title)}" class="wPop text-gray-700 hover:text-blue-600 transition-colors">${p.title}</a></li>`).join(''); const allTags = [...new Set(allPosts.flatMap(p => p.tags))]; const tagsHTML = allTags.map(t => `<a href="/tags/${createSlug(t)}" class="wTag cursor-pointer bg-gray-200 text-gray-700 text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-200 transition-colors">${t}</a>`).join(''); return { popular: popularHTML, tags: tagsHTML }; }
+    function setupArticlePage(post) { document.getElementById('btnBack').onclick = (e) => { e.preventDefault(); history.pushState(null, '', '/'); handleRouting(window.postsData); }; /* ... updateShareLinks pode ser adicionado aqui se necessário ... */ }
+    function handleSearch(event) { if (event.key === 'Enter') { event.preventDefault(); const searchTerm = event.target.value.trim().toLowerCase(); if (!searchTerm) { handleRouting(window.postsData); return; } const filteredPosts = window.postsData.filter(p => p.title.toLowerCase().includes(searchTerm) || p.content.toLowerCase().includes(searchTerm) || p.tags.some(t => t.toLowerCase().includes(searchTerm))); contentArea.innerHTML = ''; const resultsTitle = `<div class="mb-8"><h1 class="text-3xl font-serif font-bold">Resultados para: "${event.target.value.trim()}"</h1><p class="text-gray-600 mt-2">${filteredPosts.length} artigo(s) encontrado(s).</p></div>`; const grid = renderGrid(filteredPosts); contentArea.innerHTML = `<section class="section-transition">${resultsTitle}<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">${grid}</div></section>`; } }
+    function setupEventListeners(posts) { const navButton = document.getElementById('btnNav'); const mobileMenu = document.getElementById('navMenu'); if (navButton && mobileMenu) { navButton.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.toggle('hidden'); }); } document.body.addEventListener('click', e => { const link = e.target.closest('a'); if (link && link.target !== '_blank' && (link.href.startsWith(window.location.origin) || link.href.startsWith('/'))) { e.preventDefault(); history.pushState(null, '', link.getAttribute('href')); handleRouting(posts); if (mobileMenu && !mobileMenu.classList.contains('hidden')) { mobileMenu.classList.add('hidden'); } } const catCard = e.target.closest('div.card-category'); if (catCard) { e.preventDefault(); const category = catCard.dataset.category; history.pushState({ category }, '', `/categorias/${createSlug(category)}`); handleRouting(posts); } }); const searchInput = document.getElementById('inpSearch'); const searchInputMobile = document.getElementById('inpSearchMobile'); if (searchInput) searchInput.addEventListener('keydown', handleSearch); if (searchInputMobile) searchInputMobile.addEventListener('keydown', handleSearch); }
+    function handleRouting(posts) { const path = window.location.pathname; if (path.startsWith('/posts/')) { const postId = parseInt(path.split('/')[2]); const post = posts.find(p => p.id === postId); if (post) renderPage('article', post, posts); else renderPage('home', null, posts); } else if (path.startsWith('/categorias')) { const catSlug = path.split('/')[2]; if (catSlug) { const filteredPosts = posts.filter(p => createSlug(p.cat) === catSlug); renderPage('home', filteredPosts, posts); } else { renderPage('categories', null, posts); } } else if (path.startsWith('/tags/')) { const tagSlug = path.split('/')[2]; const tagName = posts.flatMap(p => p.tags).find(t => createSlug(t) === tagSlug) || tagSlug; const filteredPosts = posts.filter(post => post.tags.some(t => createSlug(t) === tagSlug)); contentArea.innerHTML = ''; const resultsTitle = `<div class="mb-8"><h1 class="text-3xl font-serif font-bold">Artigos com a tag: "${tagName}"</h1><p class="text-gray-600 mt-2">${filteredPosts.length} artigo(s) encontrado(s).</p></div>`; const grid = renderGrid(filteredPosts); contentArea.innerHTML = `<section class="section-transition">${resultsTitle}<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">${grid}</div></section>`; } else if (path.startsWith('/sobre-nos')) { renderPage('about', null, posts); } else { renderPage('home', null, posts); } }
+    async function initializeApp() { try { const hydrationDataEl = document.getElementById('hydration-data'); if (hydrationDataEl) { const data = JSON.parse(hydrationDataEl.textContent); window.postsData = data.allPosts; renderPage(data.currentPage, data.postData, data.allPosts); } else { const response = await fetch('/posts.json'); if (!response.ok) throw new Error('Falha ao carregar posts.json'); const posts = await response.json(); window.postsData = posts; handleRouting(posts); } setupEventListeners(window.postsData); } catch (error) { console.error("Erro ao inicializar a aplicação:", error); contentArea.innerHTML = `<p class="text-center text-red-500">Ocorreu um erro ao carregar o conteúdo do blog.</p>`; } }
+    document.addEventListener('DOMContentLoaded', initializeApp); window.onpopstate = () => initializeApp();
+  </script>
+</body>
+</html>
