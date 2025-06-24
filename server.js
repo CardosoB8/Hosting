@@ -8,21 +8,19 @@ const app = express();
 // Carrega os posts do ficheiro JSON
 let posts = [];
 try {
-    // Caminho robusto para encontrar o posts.json
     const postsPath = path.join(__dirname, 'posts.json');
     const postsData = fs.readFileSync(postsPath, 'utf8');
     posts = JSON.parse(postsData);
     console.log("Posts carregados com sucesso.");
 } catch (error) {
     console.error("ERRO CRÍTICO: Não foi possível carregar o posts.json.", error);
-    posts = []; // Garante que a aplicação não crashe se o JSON falhar
+    posts = [];
 }
 
 // Middlewares
 app.use(cors());
 app.use(express.json());
 
-// Caminho robusto para a pasta de ficheiros estáticos (public)
 const publicPath = path.join(__dirname, 'public');
 app.use(express.static(publicPath));
 
@@ -56,7 +54,6 @@ function renderDynamicPage(req, res, post = null) {
         
         const hydrationScript = `<script id="hydration-data" type="application/json">${JSON.stringify(hydrationData)}</script>`;
 
-        // ESTE BLOCO ESTAVA EM FALTA NA MINHA ÚLTIMA RESPOSTA. AGORA ESTÁ COMPLETO.
         let finalHtml = template
             .replace(/<title>.*?<\/title>/, `<title>${pageTitle}</title>`)
             .replace(/<meta id="meta-description".*?>/, `<meta id="meta-description" name="description" content="${metaDescription}">`)
@@ -76,35 +73,6 @@ function renderDynamicPage(req, res, post = null) {
 
 // --- ROTAS ---
 
-app.get('/sitemap.xml', (req, res) => {
-    try {
-        const baseUrl = 'https://blog-mente-curiosa.vailink.pro';
-        let xml = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
-        
-        const pages = ['/', '/sobre-nos', '/categorias'];
-        pages.forEach(page => {
-            xml += `<url><loc>${baseUrl}${page}</loc></url>`;
-        });
-
-        posts.forEach(post => {
-            // Código defensivo para não crashar se um post estiver incompleto
-            if (!post || !post.id || !post.title || !post.date) {
-                console.warn('AVISO: Post ignorado no sitemap por ter dados em falta:', post);
-                return;
-            }
-            const postSlug = post.title.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '');
-            xml += `<url><loc>${baseUrl}/posts/${post.id}/${postSlug}</loc><lastmod>${post.date}</lastmod></url>`;
-        });
-
-        xml += '</urlset>';
-        res.header('Content-Type', 'application/xml');
-        res.send(xml);
-    } catch (e) {
-        console.error("ERRO FATAL ao gerar sitemap:", e);
-        res.status(500).send("Erro interno ao gerar o sitemap.");
-    }
-});
-
 app.get('/posts.json', (req, res) => res.sendFile(path.join(__dirname, 'posts.json')));
 
 app.get('/posts/:id/:slug', (req, res) => {
@@ -112,6 +80,7 @@ app.get('/posts/:id/:slug', (req, res) => {
     if (post) renderDynamicPage(req, res, post); else res.redirect('/');
 });
 
+// Rotas para as páginas principais, para que funcionem ao recarregar
 app.get('/categorias', (req, res) => renderDynamicPage(req, res));
 app.get('/categorias/:slug', (req, res) => renderDynamicPage(req, res));
 app.get('/sobre-nos', (req, res) => renderDynamicPage(req, res));
