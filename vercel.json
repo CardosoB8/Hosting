@@ -17,11 +17,15 @@
     },
     {
       "src": "/posts/([0-9]+)/([^/]+)",
-      "dest": "/server.js"
+      "dest": "server.js"
+    },
+    {
+      "src": "/oferta.html",
+      "dest": "/oferta.html"
     },
     {
       "src": "/(.*)",
-      "dest": "/public/$1"
+      "dest": "server.js"
     }
   ]
 }
