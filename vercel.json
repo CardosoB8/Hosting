@@ -20,12 +20,8 @@
       "dest": "server.js"
     },
     {
-      "src": "/oferta.html",
-      "dest": "/oferta.html"
-    },
-    {
       "src": "/(.*)",
-      "dest": "server.js"
+      "dest": "/public/$1"
     }
   ]
 }
