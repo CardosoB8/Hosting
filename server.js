@@ -67,27 +67,39 @@ function renderDynamicPage(req, res, post = null) {
 
 // Rota para o sitemap.xml (ótimo para SEO)
 app.get('/sitemap.xml', (req, res) => {
-    const baseUrl = 'https://blog-mente-curiosa.vailink.pro'; // Substitua pelo seu URL final
-    let xml = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
-    
-    const pages = ['/', '/sobre-nos', '/categorias'];
-    pages.forEach(page => {
-        xml += `<url><loc>${baseUrl}${page}</loc></url>`;
-    });
+    try {
+        const baseUrl = 'https://blog-mente-curiosa.vailink.pro'; // Substitua pelo seu URL final
+        let xml = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+        
+        const pages = ['/', '/sobre-nos', '/categorias'];
+        pages.forEach(page => {
+            xml += `<url><loc>${baseUrl}${page}</loc></url>`;
+        });
 
-    posts.forEach(post => {
-        const postSlug = post.title.toString().toLowerCase()
-          .replace(/\s+/g, '-')
-          .replace(/[^\w\-]+/g, '')
-          .replace(/\-\-+/g, '-')
-          .replace(/^-+/, '')
-          .replace(/-+$/, '');
-        xml += `<url><loc>${baseUrl}/posts/${post.id}/${postSlug}</loc><lastmod>${post.date}</lastmod></url>`;
-    });
+        // ** A CORREÇÃO ESTÁ AQUI **
+        posts.forEach(post => {
+            // Se o post não tiver os campos essenciais, ignora-o em vez de crashar
+            if (!post || !post.id || !post.title || !post.date) {
+                console.warn('Post ignorado no sitemap por ter dados em falta:', post);
+                return;
+            }
 
-    xml += '</urlset>';
-    res.header('Content-Type', 'application/xml');
-    res.send(xml);
+            const postSlug = post.title.toString().toLowerCase()
+              .replace(/\s+/g, '-')
+              .replace(/[^\w\-]+/g, '')
+              .replace(/\-\-+/g, '-')
+              .replace(/^-+/, '')
+              .replace(/-+$/, '');
+            xml += `<url><loc>${baseUrl}/posts/${post.id}/${postSlug}</loc><lastmod>${post.date}</lastmod></url>`;
+        });
+
+        xml += '</urlset>';
+        res.header('Content-Type', 'application/xml');
+        res.send(xml);
+    } catch (e) {
+        console.error("Erro ao gerar sitemap:", e);
+        res.status(500).send("Erro ao gerar sitemap.");
+    }
 });
 
 // Rota para o ficheiro de posts
