@@ -7,20 +7,21 @@
   <link rel="icon" type="image/jpeg" href="https://i.ibb.co/4gKbLChm/Round-Photo-Jun232025-114959.png">
   <link rel="apple-touch-icon" href="https://i.ibb.co/4gKbLChm/Round-Photo-Jun232025-114959.png">
   
+  <!-- As meta tags abaixo são placeholders, o servidor irá substituí-las na primeira carga -->
   <title>Mente Curiosa | Explore o Desconhecido</title>
-  <meta name="description" content="Explore um universo de curiosidades fascinantes. Artigos sobre história, ciência, mistérios e as maravilhas do mundo. A sua jornada pelo conhecimento começa aqui.">
-  <meta name="keywords" content="curiosidades, blog, história, ciência, mistérios, animais, tecnologia, sociedade, espaço, arqueologia">
-  
-  <meta property="og:title" content="Mente Curiosa | Explore o Desconhecido">
-  <meta property="og:description" content="Um universo de curiosidades fascinantes espera por você. Artigos sobre história, ciência, e os maiores mistérios do mundo.">
-  <meta property="og:image" content="https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://blog-mente-curiosa.vailink.pro">
+  <meta id="meta-description" name="description" content="Explore um universo de curiosidades fascinantes. Artigos sobre história, ciência, mistérios e as maravilhas do mundo. A sua jornada pelo conhecimento começa aqui.">
+  <meta id="meta-keywords" name="keywords" content="curiosidades, blog, história, ciência, mistérios, animais, tecnologia, sociedade, espaço, arqueologia">
+  <meta id="og-title" property="og:title" content="Mente Curiosa | Explore o Desconhecido">
+  <meta id="og-description" property="og:description" content="Um universo de curiosidades fascinantes espera por você. Artigos sobre história, ciência, e os maiores mistérios do mundo.">
+  <meta id="og-image" property="og:image" content="https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg">
+  <meta id="og-url" property="og:url" content="https://blog-mente-curiosa.vailink.pro">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mente Curiosa | Explore o Desconhecido">
-  <meta name="twitter:description" content="Um universo de curiosidades fascinantes espera por você.">
-  <meta name="twitter:image" content="https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg">
+  <meta id="twitter-title" name="twitter:title" content="Mente Curiosa | Explore o Desconhecido">
+  <meta id="twitter-description" name="twitter:description" content="Um universo de curiosidades fascinantes espera por você. Artigos sobre história, ciência, e os maiores mistérios do mundo.">
+  <meta id="twitter-image" name="twitter:image" content="https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg">
 
+  <script type="application/ld+json" id="schema-data"></script>
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,72 +31,77 @@
 </head>
 <body class="bg-gray-50 font-sans text-gray-800">
   <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-40">
-    <div class="container mx-auto px-4"><div class="flex justify-between items-center py-4"><a href="#" id="logo" class="text-xl sm:text-2xl font-bold font-serif text-blue-600">Mente Curiosa</a><nav class="hidden md:flex items-center space-x-4"><a id="linkHome" href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Início</a><a id="linkCat" href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Categorias</a><a id="linkAbout" href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Sobre Nós</a><div class="relative"><input type="text" id="inpSearch" placeholder="Pesquisar..." class="border border-gray-300 rounded-full py-1.5 px-4 w-52 lg:w-64 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"></div></nav><button id="btnNav" class="md:hidden text-gray-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button></div></div><nav id="navMenu" class="md:hidden bg-white shadow-lg hidden"><a href="#" id="linkHomeMobile" class="block py-3 px-4 text-gray-600 hover:bg-gray-100">Início</a><a href="#" id="linkCatMobile" class="block py-3 px-4 text-gray-600 hover:bg-gray-100">Categorias</a><a href="#" id="linkAboutMobile" class="block py-3 px-4 text-gray-600 hover:bg-gray-100">Sobre Nós</a><div class="p-4"><input type="text" id="inpSearchMobile" placeholder="Pesquisar..." class="border border-gray-300 rounded-full py-2 px-4 w-full"></div></nav>
+    <div class="container mx-auto px-4"><div class="flex justify-between items-center py-4"><a href="/" id="logo" class="text-xl sm:text-2xl font-bold font-serif text-blue-600">Mente Curiosa</a><nav class="hidden md:flex items-center space-x-4"><a id="linkHome" href="/" class="text-gray-600 hover:text-blue-600 transition-colors">Início</a><a id="linkCat" href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Categorias</a><a id="linkAbout" href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Sobre Nós</a><div class="relative"><input type="text" id="inpSearch" placeholder="Pesquisar..." class="border border-gray-300 rounded-full py-1.5 px-4 w-52 lg:w-64 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"></div></nav><button id="btnNav" class="md:hidden text-gray-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button></div></div><nav id="navMenu" class="md:hidden bg-white shadow-lg hidden"><a href="/" id="linkHomeMobile" class="block py-3 px-4 text-gray-600 hover:bg-gray-100">Início</a><a href="#" id="linkCatMobile" class="block py-3 px-4 text-gray-600 hover:bg-gray-100">Categorias</a><a href="#" id="linkAboutMobile" class="block py-3 px-4 text-gray-600 hover:bg-gray-100">Sobre Nós</a><div class="p-4"><input type="text" id="inpSearchMobile" placeholder="Pesquisar..." class="border border-gray-300 rounded-full py-2 px-4 w-full"></div></nav>
   </header>
-  <main class="container mx-auto px-4 py-8"><div id="content-area"></div></main>
+  <main class="container mx-auto px-4 py-8"><div id="content-area"><!-- O conteúdo será renderizado aqui --></div></main>
   <footer class="bg-gray-800 text-white mt-12"><div class="container mx-auto px-4 py-8 text-center text-sm text-gray-400"><p>&copy; 2025 Mente Curiosa. Todos os direitos reservados.</p><p class="mt-2">Explorando os cantos mais fascinantes do conhecimento.</p></div></footer>
   <button id="btnTop" class="hidden fixed bottom-5 right-5 bg-blue-600 hover:bg-blue-700 text-white rounded-full p-3 shadow-lg transition-opacity z-50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></button>
   <div id="popExit" class="fixed inset-0 bg-black/70 flex items-center justify-center p-4 opacity-0 invisible transition-opacity duration-300 z-50"><div id="exitBox" class="bg-white rounded-lg shadow-xl p-6 sm:p-8 max-w-md w-full text-center transform scale-95 transition-transform duration-300 relative"><button id="popExitClose" class="absolute -top-2 -right-2 bg-white rounded-full p-1 shadow-md text-gray-500 hover:text-gray-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><h2 class="text-2xl sm:text-3xl font-display font-bold text-red-600 mb-2">ANTES DE SAIR...</h2><p class="text-gray-600 mb-6 text-sm sm:text-base">Uma última curiosidade: os nossos parceiros oferecem bónus especiais para novos exploradores. Uma oportunidade para quem tem uma mente curiosa (e um pouco de sorte!)</p><a id="popExitLink" href="oferta.html" target="_blank" class="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-md transition-colors promo-btn text-base sm:text-lg">VER OFERTA DE PARCEIRO</a></div></div>
 
+  <!--HYDRATION_STATE-->
+
   <script>
-    // --- CONFIG ---
     const affiliateLink = 'https://record.elephantbet.com/_rhoOOvBxBOAWqcfzuvZcQGNd7ZgqdRLk/1/';
     
-    // --- FUNÇÕES DE TEMPLATE ---
     function createSlug(text) { if (!text) return ''; const a = 'àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;'; const b = 'aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------'; const p = new RegExp(a.split('').join('|'), 'g'); return text.toString().toLowerCase().replace(/\s+/g, '-').replace(p, c => b.charAt(a.indexOf(c))).replace(/&/g, '-and-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '') }
+
     const contentArea = document.getElementById('content-area');
     const homeTemplate = (allPosts) => `<section id="secHome" class="section-transition"><div class="bg-blue-600 text-white rounded-lg p-8 md:p-12 lg:p-16 mb-8 text-center bg-cover bg-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg')"><h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-serif mb-4">Bem-vindo à Mente Curiosa</h1><p class="text-base md:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto">Toda grande descoberta começa com uma faísca: uma pergunta, uma dúvida, uma vontade de saber mais.</p></div>${heroAdTemplate()}<div id="grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">${renderGrid(allPosts)}</div></section>`;
-    const heroAdTemplate = () => `<div class="promo-banner text-white rounded-lg p-6 md:p-8 mb-8 md:mb-12 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 text-center md:text-left"><div><h2 class="text-2xl md:text-3xl font-display font-bold">Curioso para Testar a Sorte?</h2><p class="text-yellow-200 mt-1 text-sm md:text-base">Recomendamos esta plataforma pela sua fiabilidade e ofertas para novos exploradores.</p></div><a href="oferta.html" target="_blank" class="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-2 px-6 md:py-3 md:px-8 rounded-full text-base md:text-lg promo-btn whitespace-nowrap">CONHECER OFERTA</a></div>`;
+    const heroAdTemplate = () => `<div class="promo-banner text-white rounded-lg p-6 md:p-8 mb-8 md:mb-12 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 text-center md:text-left"><div><h2 class="text-2xl md:text-3xl font-display font-bold">Curioso para Testar a Sorte?</h2><p class="text-yellow-200 mt-1 text-sm md:text-base">Recomendamos esta plataforma pela sua fiabilidade e ofertas para novos exploradores.</p></div><a href="oferta.html" class="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-2 px-6 md:py-3 md:px-8 rounded-full text-base md:text-lg promo-btn whitespace-nowrap">CONHECER OFERTA</a></div>`;
     const categoriesTemplate = (allPosts) => `<section id="secCat" class="section-transition"><h2 class="text-3xl font-bold font-serif mb-2">Categorias</h2><p class="text-gray-600 mb-8">Explore nossos artigos por categoria.</p><div id="catsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">${renderCats(allPosts)}</div></section>`;
     const aboutTemplate = () => `<section id="secAbout" class="section-transition bg-white p-6 sm:p-8 rounded-lg shadow-md"><h2 class="text-3xl font-bold font-serif mb-4">Sobre Nós</h2><div class="prose max-w-none text-gray-700 leading-relaxed"><p>Olá! Sou o [O Seu Nome], um apaixonado por desvendar os segredos do nosso mundo, desde os mistérios da história até às maravilhas da ciência.</p><p>Criei o 'Mente Curiosa' como um projeto pessoal para partilhar estas descobertas com outros curiosos como eu. Acredito que aprender é a maior aventura que existe, e o meu objetivo é trazer-lhe os artigos mais interessantes e bem pesquisados possíveis.</p><p>Manter um site de qualidade exige tempo e recursos. Para ajudar a financiar a pesquisa e a manutenção do blog, faço parcerias com algumas plataformas que testei e considero de qualidade.</p><p>Quando você usa um dos links dos nossos parceiros, não só tem acesso a boas ofertas, como também está a apoiar diretamente a continuidade do "Mente Curiosa". É uma forma de nos ajudar a manter as luzes acesas e a continuar a trazer novo conteúdo.</p><p>Agradeço imensamente a sua confiança e o seu apoio nesta jornada. Vamos continuar a explorar o desconhecido juntos!</p></div></section>`;
-    const articleTemplate = (post, allPosts) => `<section id="secArt" class="section-transition"><div class="flex flex-col lg:flex-row gap-8"><div class="w-full lg:w-2/3"><a href="#" id="btnBack" class="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>Voltar à Lista</a><article class="bg-white p-6 sm:p-8 rounded-lg shadow-md"><header><img id="artImg" class="w-full h-auto max-h-96 object-cover rounded-lg mb-6" src="${post.img}" alt="${post.title}"><h1 id="artTitle" class="text-3xl md:text-4xl font-bold font-serif text-gray-900 leading-tight mb-3">${post.title}</h1><p id="artMeta" class="text-gray-500 text-sm mb-4">Publicado em ${new Date(post.date).toLocaleDateString('pt-PT', {day:'numeric', month:'long', year:'numeric'})} • ${post.cat} • por ${post.author}</p><div id="share-buttons-container" class="flex items-center gap-4 border-y py-3 mb-6">${shareButtonsTemplate()}</div></header><div id="artContent" class="prose max-w-none text-gray-700 leading-relaxed space-y-4">${insertInArticleAd(post.content)}</div></article></div><aside class="w-full lg:w-1/3"><div class="space-y-8 sticky top-24">${sidebarAdTemplate()}<div class="widget bg-white p-6 rounded-lg shadow-md"><h3 class="font-serif font-bold text-xl border-b-2 border-blue-500 pb-2 mb-4">Populares</h3><ul id="wPopular" class="space-y-3">${fillWidgets(post.id, allPosts).popular}</ul></div><div class="widget bg-white p-6 rounded-lg shadow-md"><h3 class="font-serif font-bold text-xl border-b-2 border-blue-500 pb-2 mb-4">Tags</h3><div id="wTags" class="flex flex-wrap gap-2">${fillWidgets(post.id, allPosts).tags}</div></div></div></aside></div></section>`;
+    const articleTemplate = (post, allPosts) => `<section id="secArt" class="section-transition"><div class="flex flex-col lg:flex-row gap-8"><div class="w-full lg:w-2/3"><a href="/" id="btnBack" class="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>Voltar à Lista</a><article class="bg-white p-6 sm:p-8 rounded-lg shadow-md"><header><img id="artImg" class="w-full h-auto max-h-96 object-cover rounded-lg mb-6" src="${post.img}" alt="${post.title}"><h1 id="artTitle" class="text-3xl md:text-4xl font-bold font-serif text-gray-900 leading-tight mb-3">${post.title}</h1><p id="artMeta" class="text-gray-500 text-sm mb-4">Publicado em ${new Date(post.date).toLocaleDateString('pt-PT', {day:'numeric', month:'long', year:'numeric'})} • ${post.cat} • por ${post.author}</p><div id="share-buttons-container" class="flex items-center gap-4 border-y py-3 mb-6">${shareButtonsTemplate()}</div></header><div id="artContent" class="prose max-w-none text-gray-700 leading-relaxed space-y-4">${insertInArticleAd(post.content)}</div></article></div><aside class="w-full lg:w-1/3"><div class="space-y-8 sticky top-24">${sidebarAdTemplate()}<div class="widget bg-white p-6 rounded-lg shadow-md"><h3 class="font-serif font-bold text-xl border-b-2 border-blue-500 pb-2 mb-4">Populares</h3><ul id="wPopular" class="space-y-3">${fillWidgets(post.id, allPosts).popular}</ul></div><div class="widget bg-white p-6 rounded-lg shadow-md"><h3 class="font-serif font-bold text-xl border-b-2 border-blue-500 pb-2 mb-4">Tags</h3><div id="wTags" class="flex flex-wrap gap-2">${fillWidgets(post.id, allPosts).tags}</div></div></div></aside></div></section>`;
     const shareButtonsTemplate = () => `<span class="font-semibold text-gray-700 text-sm">Partilhar:</span><a id="share-facebook" href="#" target="_blank" class="text-gray-500 hover:text-blue-600 share-btn"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06c0 5.52 4.5 10.02 10 10.02s10-4.5 10-10.02C22 6.53 17.5 2.04 12 2.04zM13.6 19v-6.3h2.1l.3-2.5h-2.4v-1.6c0-.7.2-1.2 1.2-1.2h1.3V5.2c-.2 0-.9-.1-1.8-.1-1.8 0-3 1.1-3 3.1v1.8h-2v2.5h2V19h3z"/></svg></a><a id="share-twitter" href="#" target="_blank" class="text-gray-500 hover:text-blue-400 share-btn"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2.04c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm5.22 8.29c.007.1.01.19.01.29 0 3.03-2.308 6.52-6.518 6.52-1.29 0-2.49-.38-3.5-1.02.18.02.36.03.54.03.04 0 .09 0 .13-.01 1.07-.08 2.05-.37 2.88-1.03-.99-.02-1.83-.67-2.12-1.57.14.03.28.04.42.04.21 0 .41-.03.6-.08-1.04-.21-1.82-1.13-1.82-2.22v-.03c.3.17.65.27 1.01.28-.6-.4-1-1.08-1-1.85 0-.41.11-.79.3-1.12 1.11 1.37 2.78 2.26 4.61 2.34-.04-.16-.06-.33-.06-.5 0-1.21.98-2.19 2.19-2.19.63 0 1.2.26 1.59.69.5-.1.97-.28 1.38-.53-.16.51-.51.94-.96 1.2.44-.05.86-.17 1.25-.34-.3.46-.66.86-1.08 1.19z"/></svg></a><a id="share-whatsapp" href="#" target="_blank" class="text-gray-500 hover:text-green-500 share-btn"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12.04 2.02c-5.52 0-10 4.48-10 10.01s4.48 10.01 10 10.01c1.76 0 3.43-.46 4.88-1.28l-1.13-1.96c-1.19.64-2.57.99-4 .99-4.22 0-7.65-3.44-7.65-7.66s3.43-7.66 7.65-7.66c4.22 0 7.65 3.44 7.65 7.66 0 1.35-.36 2.65-.99 3.82l1.96 1.13c.82-1.45 1.28-3.12 1.28-4.88 0-5.53-4.48-10.01-10-10.01zM17.47 14.16l-.21-.12c-.14-.08-.23-.23-.23-.39v-4.1c0-.28-.22-.5-.5-.5s-.5.22-.5.5v4.35c0 .54.44.98.98.98.1 0 .19-.01.28-.04l.21.12c.12.07.27.07.39 0l2.25-1.3c.23-.13.3-.44-.17-.67s-.44-.3-.67-.17l-2.13 1.22zm-10.94-4.8c-.28 0-.5.22-.5.5v4.1c0 .16-.09.31-.23.39l-.21-.12-2.13-1.22c-.23-.13-.3-.44-.17-.67s.44-.3.67-.17l2.25 1.3c.12.07.27.07.39 0l.21-.12c.14-.08.23-.23.23-.39V9.86c0-.28-.22-.5-.5-.5z"/></svg></a><button id="share-copy" class="text-sm bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-1 px-3 rounded-full share-btn">Copiar Link</button>`;
-    const sidebarAdTemplate = () => `<div class="widget bg-gray-800 p-6 rounded-lg shadow-md text-white text-center"><h3 class="font-display font-bold text-xl md:text-2xl text-yellow-300">Recomendação do Editor</h3><p class="my-3 md:my-4 text-sm md:text-base">Para os nossos leitores que gostam de um desafio, recomendamos explorar as ofertas do nosso parceiro oficial.</p><a href="oferta.html" target="_blank" class="block w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 md:py-3 px-4 rounded-md transition-colors promo-btn">VER OFERTA</a></div>`;
-    const inArticleAdTemplate = () => `<div class="my-8 p-6 bg-yellow-50 border-2 border-dashed border-yellow-400 rounded-lg text-center"><h4 class="font-display font-bold text-lg md:text-xl text-yellow-800">Uma Pausa para a Sorte</h4><p class="text-yellow-700 my-2 text-sm md:text-base">Sentindo-se com sorte depois de tanta curiosidade? O nosso parceiro tem uma oferta especial para os leitores do blog.</p><a href="oferta.html" target="_blank" class="inline-block mt-2 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-md transition-colors promo-btn">DESCUBRA A OFERTA</a></div>`;
+    const sidebarAdTemplate = () => `<div class="widget bg-gray-800 p-6 rounded-lg shadow-md text-white text-center"><h3 class="font-display font-bold text-xl md:text-2xl text-yellow-300">Recomendação do Editor</h3><p class="my-3 md:my-4 text-sm md:text-base">Para os nossos leitores que gostam de um desafio, recomendamos explorar as ofertas do nosso parceiro oficial.</p><a href="oferta.html" class="block w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 md:py-3 px-4 rounded-md transition-colors promo-btn">VER OFERTA</a></div>`;
+    const inArticleAdTemplate = () => `<div class="my-8 p-6 bg-yellow-50 border-2 border-dashed border-yellow-400 rounded-lg text-center"><h4 class="font-display font-bold text-lg md:text-xl text-yellow-800">Uma Pausa para a Sorte</h4><p class="text-yellow-700 my-2 text-sm md:text-base">Sentindo-se com sorte depois de tanta curiosidade? O nosso parceiro tem uma oferta especial para os leitores do blog.</p><a href="oferta.html" class="inline-block mt-2 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-md transition-colors promo-btn">DESCUBRA A OFERTA</a></div>`;
     
-    function renderPage(page, data, allPosts) { contentArea.innerHTML = ''; let template = ''; switch(page) { case 'home': template = homeTemplate(allPosts); break; case 'categories': template = categoriesTemplate(allPosts); break; case 'about': template = aboutTemplate(); break; case 'article': template = articleTemplate(data, allPosts); break; } contentArea.innerHTML = template; if (page === 'article') setupArticlePage(data); window.scrollTo(0,0); };
-    function renderGrid(list) { if (!list || list.length === 0) { return '<p class="col-span-full text-center text-gray-500">Nenhum artigo encontrado.</p>'; } return list.map(p => `<a href="#post/${p.id}" class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer card" data-id="${p.id}"><img src="${p.img}" alt="${p.title}" class="w-full h-48 object-cover"><div class="p-5 flex flex-col flex-grow"><p class="text-sm text-blue-600 font-semibold">${p.cat}</p><h2 class="text-lg font-bold font-serif mt-2 mb-4 flex-grow">${p.title}</h2><p class="text-xs text-gray-500">${new Date(p.date).toLocaleDateString('pt-PT', {day:'numeric', month:'long', year:'numeric'})}</p></div></a>`).join(''); }
+    function renderPage(page, data, allPosts) { contentArea.innerHTML = ''; let template = ''; switch(page) { case 'home': template = homeTemplate(allPosts); break; case 'categories': template = categoriesTemplate(allPosts); break; case 'about': template = aboutTemplate(); break; case 'article': template = articleTemplate(data, allPosts); break; } contentArea.innerHTML = template; if (page === 'article') setupArticlePage(data); };
+    function renderGrid(list) { if (!list || list.length === 0) { return '<p class="col-span-full text-center text-gray-500">Nenhum artigo encontrado.</p>'; } return list.map(p => `<a href="/posts/${p.id}/${createSlug(p.title)}" class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer card"><img src="${p.img}" alt="${p.title}" class="w-full h-48 object-cover"><div class="p-5 flex flex-col flex-grow"><p class="text-sm text-blue-600 font-semibold">${p.cat}</p><h2 class="text-lg font-bold font-serif mt-2 mb-4 flex-grow">${p.title}</h2><p class="text-xs text-gray-500">${new Date(p.date).toLocaleDateString('pt-PT', {day:'numeric', month:'long', year:'numeric'})}</p></div></a>`).join(''); }
     function renderCats(allPosts) { const uniqueCats = [...new Set(allPosts.map(p => p.cat))]; return uniqueCats.map(c => `<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer text-center card-category" data-category="${c}"><img src="https://placehold.co/600x400/F3F4F6/1F2937?text=${c}" alt="${c}" class="w-full h-48 object-cover"><div class="p-5"><h2 class="text-xl font-bold font-serif">${c}</h2></div></div>`).join('');}
     function insertInArticleAd(content) { const paragraphs = content.split('</p>'); if (paragraphs.length < 2) return content; const middleIndex = Math.floor(paragraphs.length / 2); paragraphs.splice(middleIndex, 0, inArticleAdTemplate()); return paragraphs.join('</p>');}
-    function fillWidgets(currentId, allPosts) { const popularPosts = allPosts.filter(p => p.id !== currentId).slice(0, 4); const popularHTML = popularPosts.map(p => `<li><a href="#post/${p.id}" class="wPop text-gray-700 hover:text-blue-600 transition-colors">${p.title}</a></li>`).join(''); const allTags = [...new Set(allPosts.flatMap(p => p.tags))]; const tagsHTML = allTags.map(t => `<a href="#tags/${createSlug(t)}" class="wTag cursor-pointer bg-gray-200 text-gray-700 text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-200 transition-colors">${t}</a>`).join(''); return { popular: popularHTML, tags: tagsHTML }; }
-    function setupArticlePage(post) { document.getElementById('btnBack').onclick = (e) => { e.preventDefault(); window.location.hash = ''; handleRouting(window.postsData); }; updateShareLinks(post); }
+    function fillWidgets(currentId, allPosts) { const popularPosts = allPosts.filter(p => p.id !== currentId).slice(0, 4); const popularHTML = popularPosts.map(p => `<li><a href="/posts/${p.id}/${createSlug(p.title)}" class="wPop text-gray-700 hover:text-blue-600 transition-colors">${p.title}</a></li>`).join(''); const allTags = [...new Set(allPosts.flatMap(p => p.tags))]; const tagsHTML = allTags.map(t => `<a href="/tags/${createSlug(t)}" class="wTag cursor-pointer bg-gray-200 text-gray-700 text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-200 transition-colors">${t}</a>`).join(''); return { popular: popularHTML, tags: tagsHTML }; }
+    function setupArticlePage(post) { document.getElementById('btnBack').onclick = (e) => { e.preventDefault(); history.pushState(null, '', '/'); handleRouting(window.postsData); }; updateShareLinks(post); }
     function updateShareLinks(post) { const postUrl = encodeURIComponent(window.location.href); const postTitle = encodeURIComponent(post.title); document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${postUrl}`; document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?url=${postUrl}&text=${postTitle}`; document.getElementById('share-whatsapp').href = `https://api.whatsapp.com/send?text=${postTitle}%20${postUrl}`; const copyBtn = document.getElementById('share-copy'); copyBtn.onclick = () => { navigator.clipboard.writeText(decodeURIComponent(postUrl)).then(() => { copyBtn.innerHTML = 'Copiado!'; setTimeout(() => { copyBtn.innerHTML = 'Copiar Link'; }, 2000); }); }; }
     
     function setupEventListeners(posts) {
         document.body.addEventListener('click', e => {
             const link = e.target.closest('a');
-            if(link && link.href.includes('#')) {
-                const isInternalLink = link.href.startsWith(window.location.origin) || !link.href.startsWith('http');
-                if (isInternalLink) {
-                    e.preventDefault();
-                    window.location.hash = link.hash;
-                }
+            if (link && link.target !== '_blank' && (link.href.startsWith(window.location.origin) || link.href.startsWith('/'))) {
+                e.preventDefault();
+                history.pushState(null, '', link.getAttribute('href'));
+                handleRouting(posts);
             }
 
             const catCard = e.target.closest('div.card-category');
             if (catCard) {
+                e.preventDefault();
                 const category = catCard.dataset.category;
-                window.location.hash = `categorias/${createSlug(category)}`;
+                history.pushState({ category }, `Categoria: ${category}`, `/categorias/${createSlug(category)}`);
+                handleRouting(posts);
             }
         });
-        const btnTop = document.getElementById('btnTop'); window.onscroll = () => { btnTop.classList.toggle('hidden', window.scrollY > 300); }; btnTop.onclick = () => window.scrollTo({ top: 0 });
-        const popExit = document.getElementById('popExit'); const exitBox = document.getElementById('exitBox'); let exitIntentFired = false; document.body.addEventListener('mouseleave', e => { if (e.clientY <= 0 && !exitIntentFired) { exitIntentFired = true; popExit.classList.remove('invisible'); popExit.classList.add('opacity-100'); exitBox.classList.remove('scale-95'); } }); document.getElementById('popExitClose').onclick = () => { popExit.classList.add('invisible'); popExit.classList.remove('opacity-100'); exitBox.classList.add('scale-95'); };
+
+        const popExit = document.getElementById('popExit');
+        const exitBox = document.getElementById('exitBox');
+        let exitIntentFired = false;
+        document.body.addEventListener('mouseleave', e => { if (e.clientY <= 0 && !exitIntentFired) { exitIntentFired = true; popExit.classList.remove('invisible'); popExit.classList.add('opacity-100'); exitBox.classList.remove('scale-95'); } });
+        const closeExitPopup = () => { popExit.classList.add('invisible'); popExit.classList.remove('opacity-100'); exitBox.classList.add('scale-95'); };
+        document.getElementById('popExitClose').onclick = closeExitPopup;
+        popExit.onclick = e => { if (e.target === popExit) closeExitPopup(); };
     }
 
     function handleRouting(posts) {
-        const hash = window.location.hash;
-        if (hash.startsWith('#post/')) {
-            const postId = parseInt(hash.split('/')[1]);
+        const path = window.location.pathname;
+        if (path.startsWith('/posts/')) {
+            const postId = parseInt(path.split('/')[2]);
             const post = posts.find(p => p.id === postId);
-            if(post) renderPage('article', post, posts); else renderPage('home', posts, posts);
-        } else if (hash.startsWith('#categorias/')) {
-            const catSlug = hash.split('/')[1];
+            if(post) renderPage('article', post, posts); else renderPage('home', null, posts);
+        } else if (path.startsWith('/categorias/')) {
+            const catSlug = path.split('/')[2];
             const cat = posts.find(p => createSlug(p.cat) === catSlug)?.cat;
             renderPage('home', posts.filter(p => p.cat === cat), posts);
-        } else if (hash === '#sobre-nos') {
+        } else if (path.startsWith('/sobre-nos')) {
             renderPage('about', null, posts);
-        } else if (hash === '#categorias') {
-            renderPage('categories', null, posts);
         } else {
             renderPage('home', null, posts);
         }
@@ -103,20 +109,27 @@
 
     async function initializeApp() {
         try {
-            const response = await fetch('posts.json');
-            if (!response.ok) throw new Error(`Falha ao carregar posts.json: ${response.statusText}`);
-            const posts = await response.json();
-            window.postsData = posts; 
-            handleRouting(posts);
-            setupEventListeners(posts);
+            const hydrationDataEl = document.getElementById('hydration-data');
+            if (hydrationDataEl) {
+                const data = JSON.parse(hydrationDataEl.textContent);
+                window.postsData = data.allPosts;
+                renderPage(data.currentPage, data.postData, data.allPosts);
+            } else {
+                const response = await fetch('/posts.json');
+                if (!response.ok) throw new Error('Falha ao carregar posts.json');
+                const posts = await response.json();
+                window.postsData = posts;
+                handleRouting(posts);
+            }
+            setupEventListeners(window.postsData);
         } catch (error) {
             console.error("Erro ao inicializar a aplicação:", error);
-            contentArea.innerHTML = `<p class="text-center text-red-500 font-semibold">Ocorreu um erro ao carregar o conteúdo do blog.</p>`;
+            contentArea.innerHTML = `<p class="text-center text-red-500">Ocorreu um erro ao carregar o conteúdo do blog.</p>`;
         }
     }
     
     document.addEventListener('DOMContentLoaded', initializeApp);
-    window.addEventListener('hashchange', () => handleRouting(window.postsData));
+    window.onpopstate = () => initializeApp();
   </script>
 </body>
 </html>
