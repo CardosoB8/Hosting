@@ -23,7 +23,7 @@
         .box-glow { box-shadow: 0 0 15px rgba(35, 209, 96, 0.4), inset 0 0 10px rgba(35, 209, 96, 0.2); }
         .blinking-cursor { animation: blink 1s step-end infinite; }
         @keyframes blink { from, to { color: transparent; } 50% { color: #23d160; } }
-        #bot-interface { background-color: rgba(0,0,0,0.4); border: 1px solid #30363d; border-radius: 8px; padding: 20px; height: 300px; overflow-y: auto; font-size: 14px; }
+        #bot-interface { background-color: rgba(0,0,0,0.4); border: 1px solid #30363d; border-radius: 8px; padding: 16px; height: 250px; overflow-y: auto; font-size: 13px; }
         #bot-interface p { margin-bottom: 8px; line-height: 1.5; }
         #bot-interface .text-green-400 { color: #23d160; }
         #bot-interface .text-yellow-400 { color: #d29922; }
@@ -43,15 +43,15 @@
         }
     </style>
 </head>
-<body class="p-4 md:p-8">
+<body class="p-4 md:p-6">
 
     <audio id="start-sound" src="https://cdn.pixabay.com/audio/2022/03/10/audio_e5b35c69b6.mp3" preload="auto"></audio>
     <audio id="signal-sound" src="song.mp3" preload="auto"></audio>
 
     <div id="entry-gate">
-        <h1 class="text-4xl font-bold text-glow-green mb-4">Sinal Aviator 2.0</h1>
-        <p class="text-gray-400 mb-8">Clique abaixo para inicializar a ferramenta</p>
-        <button id="start-button" class="bg-green-600 hover:bg-green-700 text-white font-bold text-2xl py-4 px-10 rounded-lg shadow-lg animate-pulse">
+        <h1 class="text-3xl font-bold text-glow-green mb-4">Sinal Aviator 2.0</h1>
+        <p class="text-gray-400 mb-6">Clique abaixo para inicializar a ferramenta</p>
+        <button id="start-button" class="bg-green-600 hover:bg-green-700 text-white font-bold text-xl py-3 px-8 rounded-lg shadow-lg animate-pulse">
             <i class="fas fa-power-off mr-2"></i> INICIAR BOT
         </button>
     </div>
@@ -59,76 +59,76 @@
     <main id="main-content" class="hidden">
         <div class="max-w-4xl mx-auto text-center">
             
-            <h1 class="text-3xl md:text-5xl font-bold mb-2"><span class="text-glow-green">FERRAMENTA REVELADA</span></h1>
-            <p class="text-lg text-gray-400 mb-6">O 'Bot' de Sinais que Moçambicanos usam para antecipar as 'Velas Rosas' do Aviator.</p>
+            <h1 class="text-2xl md:text-4xl font-bold mb-2"><span class="text-glow-green">FERRAMENTA REVELADA</span></h1>
+            <p class="text-base text-gray-400 mb-4">O 'Bot' de Sinais que Moçambicanos usam para antecipar as 'Velas Rosas' do Aviator.</p>
             
             <div id="bot-interface">
                 <div id="log-output"></div>
                 <span class="blinking-cursor">_</span>
             </div>
             
-            <div class="mt-4 bg-yellow-900 bg-opacity-30 border border-yellow-700 text-yellow-300 py-2 px-4 rounded-lg">
+            <div class="mt-4 bg-yellow-900 bg-opacity-30 border border-yellow-700 text-yellow-300 py-2 px-4 rounded-lg text-sm">
                 Atenção: Vagas para usar a ferramenta são limitadas para evitar deteção. Vagas disponíveis: <span id="vagas" class="font-bold">7</span>
             </div>
             
-            <div id="signal-box" class="hidden mt-6 border-4 border-green-500 rounded-xl p-6 box-glow">
-                <h2 class="text-3xl font-bold text-glow-green animate-pulse mb-4">SINAL ENCONTRADO!</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
-                    <div class="bg-gray-800 p-4 rounded-lg">
-                        <p class="text-sm text-gray-400">ENTRADA RECOMENDADA</p>
-                        <p class="text-xl font-bold">Próximas 2 Rodadas</p>
+            <div id="signal-box" class="hidden mt-4 border-2 border-green-500 rounded-xl p-4 box-glow">
+                <h2 class="text-2xl font-bold text-glow-green animate-pulse mb-3">SINAL ENCONTRADO!</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-left">
+                    <div class="bg-gray-800 p-3 rounded-lg">
+                        <p class="text-xs text-gray-400">ENTRADA RECOMENDADA</p>
+                        <p class="text-lg font-bold">Próximas 2 Rodadas</p>
                     </div>
-                    <div class="bg-gray-800 p-4 rounded-lg">
-                        <p class="text-sm text-gray-400">SAÍDA (CANDLE)</p>
-                        <p class="text-xl font-bold">Acima de <span id="vela-alvo">8.50x</span></p>
+                    <div class="bg-gray-800 p-3 rounded-lg">
+                        <p class="text-xs text-gray-400">SAÍDA (CANDLE)</p>
+                        <p class="text-lg font-bold">Acima de <span id="vela-alvo">8.50x</span></p>
                     </div>
-                    <div class="bg-gray-800 p-4 rounded-lg">
-                        <p class="text-sm text-gray-400">CONFIANÇA DO SINAL</p>
-                        <p class="text-xl font-bold text-green-400">96.4%</p>
+                    <div class="bg-gray-800 p-3 rounded-lg">
+                        <p class="text-xs text-gray-400">CONFIANÇA DO SINAL</p>
+                        <p class="text-lg font-bold text-green-400">96.4%</p>
                     </div>
                 </div>
                 
-                <a href="https://tracking.olabet.co.mz/C.ashx?btag=a_969b_12c_&affid=941&siteid=969&adid=12&c=" class="block w-full mt-6 bg-green-600 hover:bg-green-700 text-white font-bold text-2xl py-4 px-8 rounded-lg shadow-lg animate-pulse">
+                <a href="https://tracking.olabet.co.mz/C.ashx?btag=a_969b_12c_&affid=941&siteid=969&adid=12&c=" class="block w-full mt-4 bg-green-600 hover:bg-green-700 text-white font-bold text-xl py-3 px-6 rounded-lg shadow-lg animate-pulse">
                     <i class="fas fa-bolt mr-2"></i> ATIVAR SINAIS NA MINHA CONTA
                 </a>
                 <p class="text-xs text-gray-500 mt-2">Registo rápido (30s) na única plataforma compatível para sincronizar o Bot.</p>
             </div>
 
-            <div class="mt-16 text-left">
-                <h3 class="text-2xl font-bold text-center mb-8">Como Começar em 3 Passos</h3>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg border border-gray-700">
-                        <i class="fas fa-user-plus fa-2x text-blue-400 mb-4"></i>
-                        <h4 class="text-xl font-bold mb-2">PASSO 1: Crie a Conta</h4>
-                        <p class="text-gray-400">Clique no botão "Ativar Sinais" e registe-se na plataforma oficial parceira. É onde o nosso Bot funciona.</p>
+            <div class="mt-12 text-left">
+                <h3 class="text-xl font-bold text-center mb-6">Como Começar em 3 Passos</h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-gray-800 bg-opacity-50 p-4 rounded-lg border border-gray-700">
+                        <i class="fas fa-user-plus fa-lg text-blue-400 mb-3"></i>
+                        <h4 class="text-lg font-bold mb-2">PASSO 1: Crie a Conta</h4>
+                        <p class="text-gray-400 text-sm">Clique no botão "Ativar Sinais" e registe-se na plataforma oficial parceira. É onde o nosso Bot funciona.</p>
                     </div>
-                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg border border-gray-700">
-                        <i class="fas fa-satellite-dish fa-2x text-blue-400 mb-4"></i>
-                        <h4 class="text-xl font-bold mb-2">PASSO 2: Ative a Ligação</h4>
-                        <p class="text-gray-400">Faça um depósito mínimo para validar a sua conta. Isto ativa a "API" que liga a sua conta à nossa ferramenta.</p>
+                    <div class="bg-gray-800 bg-opacity-50 p-4 rounded-lg border border-gray-700">
+                        <i class="fas fa-satellite-dish fa-lg text-blue-400 mb-3"></i>
+                        <h4 class="text-lg font-bold mb-2">PASSO 2: Ative a Ligação</h4>
+                        <p class="text-gray-400 text-sm">Faça um depósito mínimo para validar a sua conta. Isto ativa a "API" que liga a sua conta à nossa ferramenta.</p>
                     </div>
-                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg border border-gray-700">
-                        <i class="fas fa-rocket fa-2x text-blue-400 mb-4"></i>
-                        <h4 class="text-xl font-bold mb-2">PASSO 3: Receba Sinais</h4>
-                        <p class="text-gray-400">Use os sinais de alta probabilidade para saber quando entrar e quando fazer cashout no Aviator.</p>
+                    <div class="bg-gray-800 bg-opacity-50 p-4 rounded-lg border border-gray-700">
+                        <i class="fas fa-rocket fa-lg text-blue-400 mb-3"></i>
+                        <h4 class="text-lg font-bold mb-2">PASSO 3: Receba Sinais</h4>
+                        <p class="text-gray-400 text-sm">Use os sinais de alta probabilidade para saber quando entrar e quando fazer cashout no Aviator.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-16 text-left">
-                 <h3 class="text-2xl font-bold text-center mb-8"><span class="text-glow-blue">Log de Ganhos Recentes</span></h3>
-                 <div id="ganhos-log" class="bg-black bg-opacity-50 border border-gray-700 rounded-lg p-4 h-48 overflow-y-auto text-sm">
+            <div class="mt-12 text-left">
+                 <h3 class="text-xl font-bold text-center mb-6"><span class="text-glow-blue">Log de Ganhos Recentes</span></h3>
+                 <div id="ganhos-log" class="bg-black bg-opacity-50 border border-gray-700 rounded-lg p-3 h-40 overflow-y-auto text-xs">
                  </div>
             </div>
 
         </div>
-        <footer class="text-center py-8 px-4 mt-8">
-            <div class="max-w-4xl mx-auto border-t border-gray-700 pt-6">
+        <footer class="text-center py-6 px-4 mt-6">
+            <div class="max-w-4xl mx-auto border-t border-gray-700 pt-4">
                 <p class="text-xs text-gray-500 mb-4">
-                    <strong>AVISO LEGAL:</strong> Este site funciona como uma publicidade e é uma página de destino independente. Não é afiliado, endossado ou patrocinado pela Meta (Facebook™), Google™ ou qualquer outra plataforma mencionada. Todas as marcas comerciais são propriedade dos seus respetivos donos.
+                    <strong>AVISO LEGAL:</strong> Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Depois de sair do Facebook, a responsabilidade não é deles e sim do nosso site.
                 </p>
                 <p class="text-xs text-gray-600">
-                    As oportunidades aqui apresentadas destinam-se a plataformas de entretenimento para maiores de 18 anos. Os resultados não são garantidos. Recomendamos sempre o jogo responsável e que nunca arrisque mais do que pode perder.
+                    As oportunidades aqui apresentadas destinam-se a plataformas de entretenimento para maiores de 18 anos. Recomendamos sempre o jogo responsável e que nunca arrisque mais do que pode perder.
                 </p>
             </div>
         </footer>
@@ -172,7 +172,7 @@
             { text: "Algoritmo de Probabilidade v2.7 ativado.", class: "text-gray-400" },
             { text: "Buscando por assinaturas de 'vela alta' (>10.00x)...", class: "text-yellow-400" },
             { text: "AGUARDE...", class: "text-yellow-400", delay: 1500 },
-            { text: "PADRÃO DE ALTA PROBABILIDADE DETETADO!", class: "text-green-400 font-bold text-lg" }
+            { text: "PADRÃO DE ALTA PROBABILIDADE DETETADO!", class: "text-green-400 font-bold" }
         ];
 
         let messageIndex = 0;
