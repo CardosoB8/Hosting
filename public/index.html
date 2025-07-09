@@ -7,7 +7,7 @@
   <link rel="icon" type="image/jpeg" href="https://i.ibb.co/4gKbLChm/Round-Photo-Jun232025-114959.png">
   <link rel="apple-touch-icon" href="https://i.ibb.co/4gKbLChm/Round-Photo-Jun232025-114959.png">
   
-  <title>Mente Curiosa | Explore o Desconhecido</title>
+  <title id="page-title">Mente Curiosa | Explore o Desconhecido</title>
   <meta id="meta-description" name="description" content="Explore um universo de curiosidades fascinantes. Artigos sobre história, ciência, mistérios e as maravilhas do mundo. A sua jornada pelo conhecimento começa aqui.">
   <meta id="og-title" property="og:title" content="Mente Curiosa | Explore o Desconhecido">
   <meta id="og-description" property="og:description" content="Um universo de curiosidades fascinantes espera por você. Artigos sobre história, ciência, e os maiores mistérios do mundo.">
@@ -15,40 +15,34 @@
   <meta id="og-url" property="og:url" content="https://blog-mente-curiosa.vailink.pro">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="google-site-verification" content="xNwWvjUwrRXUkryoX3aZp4KB8QM8hqqBInwJTkucRBU" />
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J3ZBZYWD9H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-J3ZBZYWD9H');
-</script>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PC8T5PMF');</script>
-<!-- End Google Tag Manager -->
-  <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1085381233077667');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1085381233077667&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J3ZBZYWD9H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J3ZBZYWD9H');
+  </script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PC8T5PMF');</script>
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1085381233077667');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1085381233077667&ev=PageView&noscript=1"
+  /></noscript>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,49 +54,412 @@ src="https://www.facebook.com/tr?id=1085381233077667&ev=PageView&noscript=1"
       from { opacity: 0; transform: translateY(10px); } 
       to { opacity: 1; transform: translateY(0); } 
     } 
-    .promo-btn:hover { transform: translateY(-2px); } 
     .share-btn:hover { transform: scale(1.1); }
-    @keyframes gradient-animation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .widget-tags .wTag {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        margin-right: 0.5rem;
+        white-space: nowrap;
+    }
+    /* Estilos para o banner de cookies */
+    .cookie-consent-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.85); /* Fundo semi-transparente escuro */
+        color: white;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        text-align: center;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+    }
+    .cookie-consent-banner p {
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+    }
+    .cookie-consent-banner a {
+        color: #60a5fa; /* Cor de link do Tailwind: blue-400 */
+        text-decoration: underline;
+    }
+    .cookie-consent-banner button {
+        background-color: #3b82f6; /* Cor de botão do Tailwind: blue-500 */
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 0.375rem; /* rounded-md */
+        font-weight: 600; /* font-semibold */
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+    .cookie-consent-banner button:hover {
+        background-color: #2563eb; /* blue-600 */
     }
   </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-800">
-<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PC8T5PMF"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-40">
+<header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-40">
     <div class="container mx-auto px-4"><div class="flex justify-between items-center py-4"><a href="/" id="logo" class="text-xl sm:text-2xl font-bold font-serif text-blue-600">Mente Curiosa</a><nav class="hidden md:flex items-center space-x-4"><a id="linkHome" href="/" class="text-gray-600 hover:text-blue-600 transition-colors">Início</a><a id="linkCat" href="/categorias" class="text-gray-600 hover:text-blue-600 transition-colors">Categorias</a><a id="linkAbout" href="/sobre-nos" class="text-gray-600 hover:text-blue-600 transition-colors">Sobre Nós</a><div class="relative"><input type="text" id="inpSearch" placeholder="Pesquisar..." class="border border-gray-300 rounded-full py-1.5 px-4 w-52 lg:w-64 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"></div></nav><button id="btnNav" class="md:hidden text-gray-700"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button></div></div><nav id="navMenu" class="md:hidden bg-white shadow-lg hidden"><a href="/" id="linkHomeMobile" class="block py-3 px-4 text-gray-600 hover:bg-gray-100">Início</a><a href="/categorias" id="linkCatMobile" class="block py-3 px-4 text-gray-600 hover:bg-gray-100">Categorias</a><a href="/sobre-nos" id="linkAboutMobile" class="block py-3 px-4 text-gray-600 hover:bg-gray-100">Sobre Nós</a><div class="p-4"><input type="text" id="inpSearchMobile" placeholder="Pesquisar..." class="border border-gray-300 rounded-full py-2 px-4 w-full"></div></nav>
   </header>
 
   <main class="container mx-auto px-4 py-8"><div id="content-area"></div></main>
-  <footer class="bg-gray-800 text-white mt-12"><div class="container mx-auto px-4 py-8 text-center text-sm text-gray-400"><p>&copy; 2025 Mente Curiosa. Todos os direitos reservados.</p><p class="mt-2">Explorando os cantos mais fascinantes do conhecimento.</p></div></footer>
+  
+  <footer class="bg-gray-800 text-white mt-12">
+    <div class="container mx-auto px-4 py-8 text-center text-sm text-gray-400">
+        <p>&copy; 2025 Mente Curiosa. Todos os direitos reservados.</p>
+        <p class="mt-2">Explorando os cantos mais fascinantes do conhecimento.</p>
+        <div class="mt-4 flex justify-center space-x-4">
+            <a href="/politica-de-privacidade" class="hover:text-blue-400 transition-colors">Política de Privacidade</a>
+            <span class="text-gray-600">|</span>
+            <a href="/termos-de-uso" class="hover:text-blue-400 transition-colors">Termos de Uso</a>
+        </div>
+    </div>
+  </footer>
+
   <button id="btnTop" class="hidden fixed bottom-5 right-5 bg-blue-600 hover:bg-blue-700 text-white rounded-full p-3 shadow-lg transition-opacity z-50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></button>
+
+  <div id="cookieConsentBanner" class="cookie-consent-banner hidden">
+    <p>Utilizamos cookies para personalizar o conteúdo, analisar o tráfego e melhorar sua experiência. Ao continuar navegando, você concorda com a nossa <a href="/politica-de-privacidade" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>.</p>
+    <button id="acceptCookies">Aceitar Cookies</button>
+  </div>
+
+  <script type="application/ld+json" id="schema-markup">
+  </script>
 
   <script>
     function createSlug(text) { if (!text) return ''; const a = 'àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;'; const b = 'aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------'; const p = new RegExp(a.split('').join('|'), 'g'); return text.toString().toLowerCase().replace(/\s+/g, '-').replace(p, c => b.charAt(a.indexOf(c))).replace(/&/g, '-and-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '') }
     const contentArea = document.getElementById('content-area');
-    const homeTemplate = (allPosts) => `<section id="secHome" class="section-transition"><div class="bg-blue-600 text-white rounded-lg p-8 md:p-12 lg:p-16 mb-8 text-center bg-cover bg-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg')"><h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-serif mb-4">Bem-vindo à Mente Curiosa</h1><p class="text-base md:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto">Toda grande descoberta começa com uma faísca: uma pergunta, uma dúvida, uma vontade de saber mais.</p></div>${heroAdTemplate()}<div id="grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">${renderGrid(allPosts)}</div></section>`;
-    const heroAdTemplate = () => `<div class="promo-banner relative bg-gradient-to-r from-slate-800 via-blue-900 to-slate-900 text-white rounded-lg p-6 md:p-8 mb-8 md:mb-12 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 text-center md:text-left overflow-hidden shadow-lg bg-[size:200%_200%] animate-[gradient-animation_8s_ease_infinite]"><div class="absolute -top-8 -right-8 text-yellow-300/10 w-40 h-40"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.75.75v3a.75.75 0 01-1.5 0v-3a.75.75 0 01.75-.75zM12 18a.75.75 0 01.75.75v3a.75.75 0 01-1.5 0v-3A.75.75 0 0112 18zM5.166 6.22a.75.75 0 011.06 1.06l-2.12 2.12a.75.75 0 01-1.06-1.06l2.12-2.12zM17.78 16.72a.75.75 0 011.06 1.06l-2.12 2.12a.75.75 0 11-1.06-1.06l2.12-2.12zM2.25 12a.75.75 0 01.75-.75h3a.75.75 0 010 1.5h-3a.75.75 0 01-.75-.75zM18 12a.75.75 0 01.75-.75h3a.75.75 0 010 1.5h-3a.75.75 0 01-.75-.75zM6.22 17.78a.75.75 0 011.06-1.06l2.12 2.12a.75.75 0 01-1.06 1.06l-2.12-2.12zM16.72 5.166a.75.75 0 011.06 1.06l-2.12 2.12a.75.75 0 01-1.06-1.06l2.12-2.12z"/></svg></div><div class="relative z-10"><h2 class="text-2xl md:text-3xl font-display font-bold">Curioso para Testar a Sorte?</h2><p class="text-blue-200 mt-2 text-sm md:text-base max-w-lg">Recomendamos esta plataforma pela sua fiabilidade e bónus especiais para novos exploradores.</p></div><a href="/oferta.html" target="_blank" class="relative z-10 bg-yellow-400 hover:bg-yellow-300 text-slate-900 font-bold py-3 px-8 rounded-full text-base md:text-lg promo-btn whitespace-nowrap transition-all duration-300 hover:shadow-xl hover:scale-105">CONHECER OFERTA</a></div>`;
+    const schemaMarkupElement = document.getElementById('schema-markup');
+
+    function updateMetaTags(title, description, image, url) {
+        document.getElementById('page-title').textContent = title;
+        document.getElementById('meta-description').setAttribute('content', description);
+        document.getElementById('og-title').setAttribute('content', title);
+        document.getElementById('og-description').setAttribute('content', description);
+        document.getElementById('og-image').setAttribute('content', image);
+        document.getElementById('og-url').setAttribute('content', url);
+    }
+
+    function resetMetaTags() {
+        updateMetaTags(
+            "Mente Curiosa | Explore o Desconhecido",
+            "Explore um universo de curiosidades fascinantes. Artigos sobre história, ciência, mistérios e as maravilhas do mundo. A sua jornada pelo conhecimento começa aqui.",
+            "https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg",
+            "https://blog-mente-curiosa.vailink.pro"
+        );
+    }
+
+    // --- TEMPLATES ---
+    const homeTemplate = (allPosts) => `<section id="secHome" class="section-transition"><div class="bg-blue-600 text-white rounded-lg p-8 md:p-12 lg:p-16 mb-8 text-center bg-cover bg-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg')"><h1 class="text-3xl md:text-4xl lg:text-5xl font-bold font-serif mb-4">Bem-vindo à Mente Curiosa</h1><p class="text-base md:text-lg lg:text-xl text-blue-100 max-w-3xl mx-auto">Toda grande descoberta começa com uma faísca: uma pergunta, uma dúvida, uma vontade de saber mais.</p></div><div id="grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">${renderGrid(allPosts)}</div></section>`;
     const categoriesTemplate = (allPosts) => `<section id="secCat" class="section-transition"><h2 class="text-3xl font-bold font-serif mb-2">Categorias</h2><p class="text-gray-600 mb-8">Explore nossos artigos por categoria.</p><div id="catsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">${renderCats(allPosts)}</div></section>`;
-    const aboutTemplate = () => `<section id="secAbout" class="section-transition bg-white p-6 sm:p-8 rounded-lg shadow-md"><h2 class="text-3xl font-bold font-serif mb-4">Sobre Nós</h2><div class="prose max-w-none text-gray-700 leading-relaxed"><p>Olá! Sou Cardoso Fernando o criador do 'Mente Curiosa', um apaixonado por desvendar os segredos do nosso mundo, desde os mistérios da história até às maravilhas da ciência. Criei este blog para partilhar estas descobertas com outros curiosos como eu, e para ajudar a financiar este projeto, faço parcerias com algumas plataformas que testei e considero de qualidade. Agradeço imensamente a sua confiança e o seu apoio nesta jornada. Vamos continuar a explorar o desconhecido juntos!</p></div></section>`;
-    const articleTemplate = (post, allPosts) => `<section id="secArt" class="section-transition"><div class="flex flex-col lg:flex-row gap-8"><div class="w-full lg:w-2/3"><a href="/" id="btnBack" class="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>Voltar à Lista</a><article class="bg-white p-6 sm:p-8 rounded-lg shadow-md"><header><img id="artImg" class="w-full h-auto max-h-96 object-cover rounded-lg mb-6" src="${post.img}" alt="${post.title}"><h1 id="artTitle" class="text-3xl md:text-4xl font-bold font-serif text-gray-900 leading-tight mb-3">${post.title}</h1><p id="artMeta" class="text-gray-500 text-sm mb-4">Publicado em ${new Date(post.date).toLocaleDateString('pt-PT', {day:'numeric', month:'long', year:'numeric'})} • ${post.cat} • por ${post.author}</p><div id="share-buttons-container" class="flex items-center gap-4 border-y py-3 mb-6">${shareButtonsTemplate()}</div></header><div id="artContent" class="prose max-w-none text-gray-700 leading-relaxed space-y-4">${post.content}</div><footer>${inArticleAdTemplate()}</footer></article></div><aside class="w-full lg:w-1/3"><div class="space-y-8 sticky top-24">${sidebarAdTemplate()}<div class="widget bg-white p-6 rounded-lg shadow-md"><h3 class="font-serif font-bold text-xl border-b-2 border-blue-500 pb-2 mb-4">Populares</h3><ul id="wPopular" class="space-y-3">${fillWidgets(post.id, allPosts).popular}</ul></div><div class="widget bg-white p-6 rounded-lg shadow-md"><h3 class="font-serif font-bold text-xl border-b-2 border-blue-500 pb-2 mb-4">Tags</h3><div id="wTags" class="flex flex-wrap gap-2">${fillWidgets(post.id, allPosts).tags}</div></div></div></aside></div></section>`;
-    const sidebarAdTemplate = () => `<div class="widget bg-gray-800 p-6 rounded-lg shadow-md text-white text-center"><h3 class="font-display font-bold text-xl md:text-2xl text-yellow-300">Recomendação do Editor</h3><p class="my-3 md:my-4 text-sm md:text-base">Para os nossos leitores que gostam de um desafio, recomendamos explorar as ofertas do nosso parceiro oficial.</p><a href="/oferta.html" target="_blank" class="block w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 md:py-3 px-4 rounded-md transition-colors promo-btn">VER OFERTA</a></div>`;
-    const inArticleAdTemplate = () => `<div class="mt-8 pt-6 border-t"><div class="p-6 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg text-left"><h4 class="font-display font-bold text-lg text-blue-800">Uma Dica do Autor</h4><p class="text-blue-700 my-2 text-sm md:text-base">Gosta de explorar e de um bom desafio? Para os nossos leitores mais curiosos, recomendo dar uma olhada na oferta especial do nosso parceiro de confiança.</p><a href="/oferta.html" target="_blank" class="inline-block mt-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-5 rounded-md transition-colors promo-btn text-sm">Descubra a Oferta</a></div></div>`;
-    const shareButtonsTemplate = () => ``;
-    function renderPage(page, data, allPosts) { contentArea.innerHTML = ''; let template = ''; switch(page) { case 'home': template = homeTemplate(data || allPosts); break; case 'categories': template = categoriesTemplate(allPosts); break; case 'about': template = aboutTemplate(); break; case 'article': template = articleTemplate(data, allPosts); break; } contentArea.innerHTML = template; if (page === 'article') setupArticlePage(data); window.scrollTo(0, 0); }
+    const aboutTemplate = () => `<section id="secAbout" class="section-transition bg-white p-6 sm:p-8 rounded-lg shadow-md"><h2 class="text-3xl font-bold font-serif mb-4">Sobre Nós</h2><div class="prose max-w-none text-gray-700 leading-relaxed"><p>Olá! Sou Cardoso Fernando, o criador do 'Mente Curiosa', um apaixonado por desvendar os segredos do nosso mundo, desde os mistérios da história até às maravilhas da ciência. Criei este blog para partilhar estas descobertas com outros curiosos como eu. Agradeço imensamente a sua confiança e o seu apoio nesta jornada. Vamos continuar a explorar o desconhecido juntos!</p></div></section>`;
+    // Novas páginas de políticas
+    const privacyPolicyTemplate = () => `<section id="secPrivacy" class="section-transition bg-white p-6 sm:p-8 rounded-lg shadow-md"><h2 class="text-3xl font-bold font-serif mb-4">Política de Privacidade</h2><div class="prose max-w-none text-gray-700 leading-relaxed space-y-4"><p>A sua privacidade é importante para nós. Esta política de privacidade descreve como coletamos, usamos e protegemos as suas informações pessoais neste blog.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Coleta de Informações</h3><p>Coletamos informações através de ferramentas de análise (como Google Analytics) para entender como os usuários interagem com o nosso site. Estas informações incluem dados demográficos e de interesse, mas não identificam individualmente o usuário.</p><p>Também utilizamos cookies para melhorar a sua experiência de navegação, personalizar conteúdo e anúncios, e analisar o nosso tráfego. Você pode gerenciar suas preferências de cookies nas configurações do seu navegador.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Uso de Informações</h3><p>As informações coletadas são usadas para:</p><ul><li>Melhorar o conteúdo e a funcionalidade do site.</li><li>Entender as preferências dos nossos leitores.</li><li>Otimizar a exibição de anúncios (no futuro).</li></ul><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Compartilhamento de Informações</h3><p>Não vendemos, trocamos ou transferimos as suas informações de identificação pessoal para terceiros. Isso não inclui terceiros de confiança que nos ajudam a operar nosso site, conduzir nossos negócios, ou prestar-lhe serviços, desde que essas partes concordem em manter essas informações confidenciais.</p><h3 class="text-xl font-serif font-bold mt-6 mb-3 text-gray-800">Seus Direitos</h3><p>Você tem o direito de acessar, corrigir ou excluir as suas informações pessoais que mantemos. Para exercer esses direitos, entre em contato conosco através do formulário de contato (se houver).</p><h3 class=\"text-xl font-serif font-bold mt-6 mb-3 text-gray-800\">Alterações à Política de Privacidade</h3><p>Esta Política de Privacidade pode ser atualizada periodicamente. Recomendamos que você a revise regularmente para estar ciente de quaisquer alterações. A data da última atualização será indicada no início da política.</p></div></section>`;
+    const termsOfUseTemplate = () => `<section id="secTerms" class="section-transition bg-white p-6 sm:p-8 rounded-lg shadow-md"><h2 class="text-3xl font-bold font-serif mb-4">Termos de Uso</h2><div class="prose max-w-none text-gray-700 leading-relaxed space-y-4"><p>Bem-vindo ao blog Mente Curiosa. Ao acessar e usar este site, você concorda em cumprir e estar vinculado aos seguintes termos e condições de uso.</p><h3 class=\"text-xl font-serif font-bold mt-6 mb-3 text-gray-800\">Conteúdo do Site</h3><p>O conteúdo deste blog é apenas para fins informativos e de entretenimento geral. Não garantimos a exatidão, integridade ou adequação das informações e materiais encontrados ou oferecidos neste site para qualquer finalidade específica.</p><h3 class=\"text-xl font-serif font-bold mt-6 mb-3 text-gray-800\">Propriedade Intelectual</h3><p>Todo o conteúdo publicado neste blog, incluindo textos, imagens e gráficos, é de propriedade do Mente Curiosa ou de seus respectivos autores e está protegido por leis de direitos autorais. A reprodução, distribuição ou modificação de qualquer conteúdo sem permissão prévia é proibida.</p><h3 class=\"text-xl font-serif font-bold mt-6 mb-3 text-gray-800\">Links para Outros Sites</h3><p>Nosso blog pode conter links para sites de terceiros que não são operados por nós. Não temos controle sobre o conteúdo, políticas de privacidade ou práticas de quaisquer sites ou serviços de terceiros e não aceitamos qualquer responsabilidade por eles.</p><h3 class=\"text-xl font-serif font-bold mt-6 mb-3 text-gray-800\">Limitação de Responsabilidade</h3><p>O Mente Curiosa não será responsável por quaisquer danos diretos, indiretos, incidentais, consequenciais ou punitivos decorrentes do seu acesso ou uso do site.</p><h3 class=\"text-xl font-serif font-bold mt-6 mb-3 text-gray-800\">Alterações nos Termos</h3><p>Reservamos o direito de revisar e alterar estes Termos de Uso a qualquer momento, publicando as alterações neste site. Seu uso continuado do site após quaisquer alterações constitui sua aceitação dos novos termos.</p></div></section>`;
+
+
+    const articleTemplate = (post, allPosts) => `<section id="secArt" class="section-transition"><div class="flex flex-col lg:flex-row gap-8"><div class="w-full lg:w-2/3"><a href="/" id="btnBack" class="inline-flex items-center gap-2 text-gray-600 hover:text-blue-600 mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>Voltar à Lista</a><article class="bg-white p-6 sm:p-8 rounded-lg shadow-md"><header><img id="artImg" class="w-full h-auto max-h-96 object-cover rounded-lg mb-6" src="${post.img}" alt="${post.title}"><h1 id="artTitle" class="text-3xl md:text-4xl font-bold font-serif text-gray-900 leading-tight mb-3">${post.title}</h1><p id="artMeta" class="text-gray-500 text-sm mb-4">Publicado em ${new Date(post.date).toLocaleDateString('pt-PT', {day:'numeric', month:'long', year:'numeric'})} • ${post.cat} • por ${post.author}</p><div id="share-buttons-container" class="flex items-center gap-4 border-y py-3 mb-6">${shareButtonsTemplate(post)}</div></header><div id="artContent" class="prose max-w-none text-gray-700 leading-relaxed space-y-4">${post.content}</div><footer></footer></article></div><aside class="w-full lg:w-1/3"><div class="space-y-8 sticky top-24"><div class="widget bg-white p-6 rounded-lg shadow-md"><h3 class="font-serif font-bold text-xl border-b-2 border-blue-500 pb-2 mb-4">Populares</h3><ul id="wPopular" class="space-y-3">${fillWidgets(post.id, allPosts).popular}</ul></div><div class="widget bg-white p-6 rounded-lg shadow-md"><h3 class="font-serif font-bold text-xl border-b-2 border-blue-500 pb-2 mb-4">Tags</h3><div id="wTags" class="flex flex-wrap widget-tags">${fillWidgets(post.id, allPosts).tags}</div></div></div></aside></div></section>`;
+    
+    // Implementação dos botões de compartilhamento
+    const shareButtonsTemplate = (post) => {
+        const pageUrl = encodeURIComponent(window.location.href);
+        const postTitle = encodeURIComponent(post.title);
+        const postDescription = encodeURIComponent(post.summary || post.content.substring(0, 160).replace(/<[^>]*>?/gm, '')); // Prioriza post.summary
+        
+        return `
+            <span class="text-gray-600 mr-2 text-sm">Compartilhe:</span>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=${pageUrl}" target="_blank" rel="noopener noreferrer" aria-label="Compartilhar no Facebook" class="share-btn text-blue-700 hover:text-blue-900 transition-colors p-2 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://twitter.com/intent/tweet?url=${pageUrl}&text=${postTitle}" target="_blank" rel="noopener noreferrer" aria-label="Compartilhar no X (Twitter)" class="share-btn text-blue-500 hover:text-blue-700 transition-colors p-2 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.39-.83.49-1.75.85-2.73 1.04C18.3 4.14 17.06 3.5 15.6 3.5c-2.35 0-4.27 1.9-4.27 4.25 0 .33.04.66.12.98C8.24 9.1 5.34 7.63 3.3 5.37c-.36.6-.56 1.3-.56 2.05 0 1.47.75 2.76 1.89 3.51-.7-.02-1.37-.2-1.95-.5v.05c0 2.06 1.46 3.78 3.39 4.16-.35.09-.73.14-1.12.14-.27 0-.53-.03-.79-.08.54 1.68 2.11 2.91 3.97 2.94-1.45 1.14-3.28 1.82-5.26 1.82-.34 0-.68-.02-1.01-.06C3.93 20.3 6.18 21 8.6 21c6.7 0 10.37-5.54 10.37-10.37 0-.16-.01-.32-.01-.48.71-.51 1.33-1.14 1.82-1.85z"/></svg>
+            </a>
+            <a href="https://api.whatsapp.com/send?text=${postTitle}%20${pageUrl}" target="_blank" rel="noopener noreferrer" aria-label="Compartilhar no WhatsApp" class="share-btn text-green-500 hover:text-green-700 transition-colors p-2 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.52 3.42 1.49 4.88L2 22l5.24-1.38c1.37.76 2.97 1.17 4.7 1.17 5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zm.04 1.54c4.63 0 8.38 3.75 8.38 8.38 0 4.63-3.75 8.38-8.38 8.38-1.57 0-3.08-.43-4.39-1.2l-.31-.18-3.25.86.87-3.16-.2-.32c-.8-1.28-1.23-2.76-1.23-4.38C3.66 5.29 7.41 1.54 12.04 1.54zm-1.4 3.7c-.23 0-.46.06-.66.16-.16.08-.34.2-.49.33l-.22.2-.4.49c-.19.23-.32.49-.44.75-.12.26-.18.55-.18.84 0 .32.06.63.19.93.13.3.3.59.51.84l.32.39c.65.79 1.43 1.45 2.29 1.95.86.5 1.8.8 2.76.8 1.05 0 2.05-.38 2.87-1.07.82-.69 1.34-1.63 1.51-2.69.05-.28-.02-.57-.16-.83-.14-.26-.35-.47-.6-.62l-.24-.15c-.24-.14-.52-.16-.76-.04-.24.12-.42.34-.54.59-.12.25-.17.54-.15.84.03.32.1.6.22.84.12.24.27.42.45.54.18.12.38.18.6.18.25 0 .49-.07.7-.22.21-.15.37-.35.48-.59.11-.24.16-.5.16-.77 0-.3-.07-.58-.2-.84-.13-.26-.32-.48-.54-.62l-.22-.12c-.22-.1-.45-.16-.69-.16zm-.04 1.53c.12 0 .23.03.34.09.11.06.21.14.28.23l.16.19c.1.12.16.27.18.42.02.15 0 .31-.05.46-.05.15-.13.29-.25.4-.12.11-.26.2-.42.27-.16.07-.33.1-.5.1-.19 0-.37-.03-.54-.1-.17-.07-.31-.17-.43-.29-.12-.12-.21-.26-.27-.42-.06-.16-.08-.32-.05-.49.03-.17.09-.32.18-.46l.16-.2c.09-.1.2-.18.31-.24.12-.06.24-.09.37-.09z"/></svg>
+            </a>
+        `;
+    };
+    
+    // --- RENDER FUNCTIONS ---
+    function renderPage(page, data, allPosts) { 
+        contentArea.innerHTML = ''; 
+        let template = ''; 
+        let pageUrl = window.location.origin + window.location.pathname;
+
+        // Reset schema markup initially
+        schemaMarkupElement.textContent = ''; 
+
+        switch(page) { 
+            case 'home': 
+                template = homeTemplate(data || allPosts); 
+                resetMetaTags(); 
+                // Schema para o homepage (Website/Blog)
+                const homeSchema = {
+                    "@context": "https://schema.org",
+                    "@type": "WebSite",
+                    "url": "https://blog-mente-curiosa.vailink.pro/",
+                    "name": "Mente Curiosa",
+                    "description": "Explore um universo de curiosidades fascinantes. Artigos sobre história, ciência, mistérios e as maravilhas do mundo. A sua jornada pelo conhecimento começa aqui.",
+                    "potentialAction": {
+                        "@type": "SearchAction",
+                        "target": "https://blog-mente-curiosa.vailink.pro/pesquisa?q={search_term_string}",
+                        "query-input": "required name=search_term_string"
+                    }
+                };
+                schemaMarkupElement.textContent = JSON.stringify(homeSchema);
+                break; 
+            case 'categories': 
+                template = categoriesTemplate(allPosts); 
+                updateMetaTags(
+                    "Categorias | Mente Curiosa",
+                    "Navegue por todas as categorias de curiosidades no Mente Curiosa.",
+                    "https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg",
+                    pageUrl
+                );
+                break; 
+            case 'about': 
+                template = aboutTemplate(); 
+                updateMetaTags(
+                    "Sobre Nós | Mente Curiosa",
+                    "Conheça Cardoso Fernando, o criador do blog Mente Curiosa e sua paixão por desvendar o desconhecido.",
+                    "https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg",
+                    pageUrl
+                );
+                break; 
+            case 'privacy-policy':
+                template = privacyPolicyTemplate();
+                updateMetaTags(
+                    "Política de Privacidade | Mente Curiosa",
+                    "Leia nossa política de privacidade para entender como coletamos, usamos e protegemos suas informações neste blog.",
+                    "https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg",
+                    pageUrl
+                );
+                break;
+            case 'terms-of-use':
+                template = termsOfUseTemplate();
+                updateMetaTags(
+                    "Termos de Uso | Mente Curiosa",
+                    "Confira os termos e condições para o uso do blog Mente Curiosa.",
+                    "https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg",
+                    pageUrl
+                );
+                break;
+            case 'article': 
+                template = articleTemplate(data, allPosts);
+                if (data) {
+                    const postDescription = data.summary || data.content.substring(0, 160).replace(/<[^>]*>?/gm, '') + '...';
+                    pageUrl = window.location.origin + `/posts/${data.id}/${createSlug(data.title)}`;
+                    updateMetaTags(
+                        `${data.title} | Mente Curiosa`,
+                        postDescription, 
+                        data.img, 
+                        pageUrl
+                    );
+                    // Schema para o artigo (Article)
+                    const articleSchema = {
+                        "@context": "https://schema.org",
+                        "@type": "Article",
+                        "headline": data.title,
+                        "image": data.img,
+                        "datePublished": data.date,
+                        "dateModified": data.date, // Idealmente ter um campo 'dateModified'
+                        "author": {
+                            "@type": "Person",
+                            "name": data.author
+                        },
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "Mente Curiosa",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "url": "https://i.ibb.co/4gKbLChm/Round-Photo-Jun232025-114959.png"
+                            }
+                        },
+                        "description": postDescription,
+                        "mainEntityOfPage": {
+                            "@type": "WebPage",
+                            "@id": pageUrl
+                        }
+                    };
+                    schemaMarkupElement.textContent = JSON.stringify(articleSchema);
+                } else {
+                    resetMetaTags();
+                }
+                break; 
+            case 'search': 
+            case 'tag': 
+                const searchTermOrTag = data.searchTerm || data.tagName || '';
+                updateMetaTags(
+                    `Resultados para "${searchTermOrTag}" | Mente Curiosa`,
+                    `Artigos relacionados a "${searchTermOrTag}" no blog Mente Curiosa.`,
+                    "https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg",
+                    pageUrl
+                );
+                template = data.content;
+                break;
+            default: // Caso de rota não encontrada (pode ser um 404)
+                template = `<section id="sec404" class="section-transition bg-white p-6 sm:p-8 rounded-lg shadow-md text-center">
+                    <h2 class="text-3xl font-bold font-serif mb-4">Página Não Encontrada (404)</h2>
+                    <p class="text-gray-700 leading-relaxed">Ops! A página que você está procurando não existe ou foi movida.</p>
+                    <a href="/" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 mt-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                        Voltar para a Página Inicial
+                    </a>
+                </section>`;
+                updateMetaTags(
+                    "Página Não Encontrada (404) | Mente Curiosa",
+                    "A página que você está procurando no Mente Curiosa não foi encontrada.",
+                    "https://i.ibb.co/mrF0CGwv/Gemini-Generated-Image-jjpnkfjjpnkfjjpn-1.jpg",
+                    window.location.origin + "/404" // URL de 404
+                );
+                break;
+        } 
+        contentArea.innerHTML = template; 
+        if (page === 'article') setupArticlePage(data); 
+        window.scrollTo(0, 0); 
+    }
+
     function renderGrid(list) { if (!list || list.length === 0) { return '<p class="col-span-full text-center text-gray-500 py-10">Nenhum artigo encontrado.</p>'; } return list.map(p => `<a href="/posts/${p.id}/${createSlug(p.title)}" class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer card"><img src="${p.img}" alt="${p.title}" class="w-full h-48 object-cover"><div class="p-5 flex flex-col flex-grow"><p class="text-sm text-blue-600 font-semibold">${p.cat}</p><h2 class="text-lg font-bold font-serif mt-2 mb-4 flex-grow">${p.title}</h2><p class="text-xs text-gray-500">${new Date(p.date).toLocaleDateString('pt-PT', {day:'numeric', month:'long', year:'numeric'})}</p></div></a>`).join(''); }
-    function renderCats(allPosts) { const uniqueCats = [...new Set(allPosts.map(p => p.cat))]; return uniqueCats.map(c => `<div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer text-center card-category" data-category="${c}"><img src="https://placehold.co/600x400/F3F4F6/1F2937?text=${encodeURIComponent(c)}" alt="${c}" class="w-full h-48 object-cover"><div class="p-5"><h2 class="text-xl font-bold font-serif">${c}</h2></div></div>`).join('');}
-    function fillWidgets(currentId, allPosts) { const popularPosts = allPosts.filter(p => p.id !== currentId).slice(0, 4); const popularHTML = popularPosts.map(p => `<li><a href="/posts/${p.id}/${createSlug(p.title)}" class="wPop text-gray-700 hover:text-blue-600 transition-colors">${p.title}</a></li>`).join(''); const allTags = [...new Set(allPosts.flatMap(p => p.tags))]; const tagsHTML = allTags.map(t => `<a href="/tags/${createSlug(t)}" class="wTag cursor-pointer bg-gray-200 text-gray-700 text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-200 transition-colors">${t}</a>`).join(''); return { popular: popularHTML, tags: tagsHTML }; }
-    function setupArticlePage(post) { document.getElementById('btnBack').onclick = (e) => { e.preventDefault(); history.pushState(null, '', '/'); handleRouting(window.postsData); }; /* ... updateShareLinks pode ser adicionado aqui se necessário ... */ }
-    function handleSearch(event) { if (event.key === 'Enter') { event.preventDefault(); const searchTerm = event.target.value.trim().toLowerCase(); if (!searchTerm) { handleRouting(window.postsData); return; } const filteredPosts = window.postsData.filter(p => p.title.toLowerCase().includes(searchTerm) || p.content.toLowerCase().includes(searchTerm) || p.tags.some(t => t.toLowerCase().includes(searchTerm))); contentArea.innerHTML = ''; const resultsTitle = `<div class="mb-8"><h1 class="text-3xl font-serif font-bold">Resultados para: "${event.target.value.trim()}"</h1><p class="text-gray-600 mt-2">${filteredPosts.length} artigo(s) encontrado(s).</p></div>`; const grid = renderGrid(filteredPosts); contentArea.innerHTML = `<section class="section-transition">${resultsTitle}<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">${grid}</div></section>`; } }
-    function setupEventListeners(posts) { const navButton = document.getElementById('btnNav'); const mobileMenu = document.getElementById('navMenu'); if (navButton && mobileMenu) { navButton.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.toggle('hidden'); }); } document.body.addEventListener('click', e => { const link = e.target.closest('a'); if (link && link.target !== '_blank' && (link.href.startsWith(window.location.origin) || link.href.startsWith('/'))) { e.preventDefault(); history.pushState(null, '', link.getAttribute('href')); handleRouting(posts); if (mobileMenu && !mobileMenu.classList.contains('hidden')) { mobileMenu.classList.add('hidden'); } } const catCard = e.target.closest('div.card-category'); if (catCard) { e.preventDefault(); const category = catCard.dataset.category; history.pushState({ category }, '', `/categorias/${createSlug(category)}`); handleRouting(posts); } }); const searchInput = document.getElementById('inpSearch'); const searchInputMobile = document.getElementById('inpSearchMobile'); if (searchInput) searchInput.addEventListener('keydown', handleSearch); if (searchInputMobile) searchInputMobile.addEventListener('keydown', handleSearch); }
-    function handleRouting(posts) { const path = window.location.pathname; if (path.startsWith('/posts/')) { const postId = parseInt(path.split('/')[2]); const post = posts.find(p => p.id === postId); if (post) renderPage('article', post, posts); else renderPage('home', null, posts); } else if (path.startsWith('/categorias')) { const catSlug = path.split('/')[2]; if (catSlug) { const filteredPosts = posts.filter(p => createSlug(p.cat) === catSlug); renderPage('home', filteredPosts, posts); } else { renderPage('categories', null, posts); } } else if (path.startsWith('/tags/')) { const tagSlug = path.split('/')[2]; const tagName = posts.flatMap(p => p.tags).find(t => createSlug(t) === tagSlug) || tagSlug; const filteredPosts = posts.filter(post => post.tags.some(t => createSlug(t) === tagSlug)); contentArea.innerHTML = ''; const resultsTitle = `<div class="mb-8"><h1 class="text-3xl font-serif font-bold">Artigos com a tag: "${tagName}"</h1><p class="text-gray-600 mt-2">${filteredPosts.length} artigo(s) encontrado(s).</p></div>`; const grid = renderGrid(filteredPosts); contentArea.innerHTML = `<section class="section-transition">${resultsTitle}<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">${grid}</div></section>`; } else if (path.startsWith('/sobre-nos')) { renderPage('about', null, posts); } else { renderPage('home', null, posts); } }
-    async function initializeApp() { try { const hydrationDataEl = document.getElementById('hydration-data'); if (hydrationDataEl) { const data = JSON.parse(hydrationDataEl.textContent); window.postsData = data.allPosts; renderPage(data.currentPage, data.postData, data.allPosts); } else { const response = await fetch('/posts.json'); if (!response.ok) throw new Error('Falha ao carregar posts.json'); const posts = await response.json(); window.postsData = posts; handleRouting(posts); } setupEventListeners(window.postsData); } catch (error) { console.error("Erro ao inicializar a aplicação:", error); contentArea.innerHTML = `<p class="text-center text-red-500">Ocorreu um erro ao carregar o conteúdo do blog.</p>`; } }
-    document.addEventListener('DOMContentLoaded', initializeApp); window.onpopstate = () => initializeApp();
+    function renderCats(allPosts) { const uniqueCats = [...new Set(allPosts.map(p => p.cat))]; return uniqueCats.map(c => `<a href="/categorias/${createSlug(c)}" class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer text-center card-category" data-category="${c}"><img src="https://placehold.co/600x400/F3F4F6/1F2937?text=${encodeURIComponent(c)}" alt="Categoria ${c}" class="w-full h-48 object-cover"><div class="p-5"><h2 class="text-xl font-bold font-serif">${c}</h2></div></a>`).join('');}
+    function fillWidgets(currentId, allPosts) { 
+        const popularPosts = allPosts.filter(p => p.id !== currentId).sort((a, b) => (b.views || 0) - (a.views || 0) || new Date(b.date) - new Date(a.date)).slice(0, 4); 
+        const popularHTML = popularPosts.map(p => `<li><a href="/posts/${p.id}/${createSlug(p.title)}" class="wPop text-gray-700 hover:text-blue-600 transition-colors">${p.title}</a></li>`).join(''); 
+        
+        const allTags = [...new Set(allPosts.flatMap(p => p.tags))]; 
+        const tagsHTML = allTags.map(t => `<a href="/tags/${createSlug(t)}" class="wTag cursor-pointer bg-gray-200 text-gray-700 text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-200 transition-colors">${t}</a>`).join(''); 
+        
+        return { popular: popularHTML, tags: tagsHTML }; 
+    }
+    function setupArticlePage(post) { document.getElementById('btnBack').onclick = (e) => { e.preventDefault(); history.pushState(null, '', '/'); handleRouting(window.postsData); }; }
+    
+    function handleSearch(event) { 
+        if (event.key === 'Enter') { 
+            event.preventDefault(); 
+            const searchTerm = event.target.value.trim(); // Manter maiúsculas/minúsculas para exibição
+            const lowerCaseSearchTerm = searchTerm.toLowerCase();
+
+            if (!searchTerm) { 
+                history.pushState(null, '', '/'); 
+                handleRouting(window.postsData); 
+                return; 
+            } 
+            const filteredPosts = window.postsData.filter(p => p.title.toLowerCase().includes(lowerCaseSearchTerm) || p.content.toLowerCase().includes(lowerCaseSearchTerm) || p.tags.some(t => t.toLowerCase().includes(lowerCaseSearchTerm))); 
+            
+            const resultsTitle = `<div class="mb-8"><h1 class="text-3xl font-serif font-bold">Resultados para: "${searchTerm}"</h1><p class="text-gray-600 mt-2">${filteredPosts.length} artigo(s) encontrado(s).</p></div>`; 
+            const grid = renderGrid(filteredPosts); 
+            
+            renderPage('search', { searchTerm: searchTerm, content: `<section class="section-transition">${resultsTitle}<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">${grid}</div></section>` }, window.postsData);
+            
+            history.pushState({ searchTerm: searchTerm }, '', `/pesquisa?q=${encodeURIComponent(searchTerm)}`);
+            // Limpar campos de pesquisa
+            document.getElementById('inpSearch').value = '';
+            document.getElementById('inpSearchMobile').value = '';
+        } 
+    }
+    
+    function handleRouting(posts) { 
+        const path = window.location.pathname; 
+        const params = new URLSearchParams(window.location.search);
+
+        if (path.startsWith('/posts/')) { 
+            const postId = parseInt(path.split('/')[2]); 
+            const post = posts.find(p => p.id === postId); 
+            if (post) renderPage('article', post, posts); 
+            else renderPage('404', null, posts); // Renderiza 404 se o post não existir
+        } else if (path.startsWith('/categorias')) { 
+            const catSlug = path.split('/')[2]; 
+            if (catSlug) { 
+                const filteredPosts = posts.filter(p => createSlug(p.cat) === catSlug); 
+                const categoryName = posts.find(p => createSlug(p.cat) === catSlug)?.cat || catSlug; 
+                const resultsTitle = `<div class="mb-8"><h1 class="text-3xl font-serif font-bold">Artigos na Categoria: "${categoryName}"</h1><p class="text-gray-600 mt-2">${filteredPosts.length} artigo(s) encontrado(s).</p></div>`;
+                renderPage('search', { searchTerm: categoryName, content: `<section class="section-transition">${resultsTitle}<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">${renderGrid(filteredPosts)}</div></section>` }, posts);
+            } else { 
+                renderPage('categories', null, posts); 
+            } 
+        } else if (path.startsWith('/tags/')) { 
+            const tagSlug = path.split('/')[2]; 
+            const tagName = posts.flatMap(p => p.tags).find(t => createSlug(t) === tagSlug) || tagSlug; 
+            const filteredPosts = posts.filter(post => post.tags.some(t => createSlug(t) === tagSlug)); 
+            
+            const resultsTitle = `<div class="mb-8"><h1 class="text-3xl font-serif font-bold">Artigos com a tag: "${tagName}"</h1><p class="text-gray-600 mt-2">${filteredPosts.length} artigo(s) encontrado(s).</p></div>`; 
+            
+            renderPage('tag', { tagName: tagName, content: `<section class="section-transition">${resultsTitle}<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">${renderGrid(filteredPosts)}</div></section>` }, posts);
+        } else if (path.startsWith('/sobre-nos')) { 
+            renderPage('about', null, posts); 
+        } else if (path.startsWith('/politica-de-privacidade')) {
+            renderPage('privacy-policy', null, posts);
+        } else if (path.startsWith('/termos-de-uso')) {
+            renderPage('terms-of-use', null, posts);
+        } else if (path.startsWith('/pesquisa')) { 
+            const searchTerm = params.get('q');
+            if (searchTerm) {
+                 const filteredPosts = window.postsData.filter(p => p.title.toLowerCase().includes(searchTerm.toLowerCase()) || p.content.toLowerCase().includes(searchTerm.toLowerCase()) || p.tags.some(t => t.toLowerCase().includes(searchTerm.toLowerCase()))); 
+                const resultsTitle = `<div class="mb-8"><h1 class="text-3xl font-serif font-bold">Resultados para: "${searchTerm}"</h1><p class="text-gray-600 mt-2">${filteredPosts.length} artigo(s) encontrado(s).</p></div>`; 
+                renderPage('search', { searchTerm: searchTerm, content: `<section class="section-transition">${resultsTitle}<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">${renderGrid(filteredPosts)}</div></section>` }, posts);
+            } else {
+                renderPage('home', null, posts);
+            }
+        } else { 
+            renderPage('home', null, posts); 
+        } 
+    }
+
+    // --- Cookie Consent Logic ---
+    function checkCookieConsent() {
+        if (localStorage.getItem('cookieConsent') === 'granted') {
+            document.getElementById('cookieConsentBanner').classList.add('hidden');
+        } else {
+            document.getElementById('cookieConsentBanner').classList.remove('hidden');
+        }
+    }
+
+    function acceptCookies() {
+        localStorage.setItem('cookieConsent', 'granted');
+        document.getElementById('cookieConsentBanner').classList.add('hidden');
+    }
+
+    async function initializeApp() { 
+        try { 
+            const hydrationDataEl = document.getElementById('hydration-data'); 
+            if (hydrationDataEl) { 
+                const data = JSON.parse(hydrationDataEl.textContent); 
+                window.postsData = data.allPosts; 
+                renderPage(data.currentPage, data.postData, data.allPosts); 
+            } else { 
+                const response = await fetch('/posts.json'); 
+                if (!response.ok) {
+                    if (response.status === 404) {
+                        renderPage('404', null, null); // Renderiza 404 se posts.json não for encontrado
+                        return;
+                    }
+                    throw new Error('Falha ao carregar posts.json');
+                }
+                const posts = await response.json(); 
+                window.postsData = posts; 
+                handleRouting(posts); 
+            } 
+            setupEventListeners(window.postsData); 
+        } catch (error) { 
+            console.error("Erro ao inicializar a aplicação:", error); 
+            contentArea.innerHTML = `<p class="text-center text-red-500 py-10">Ocorreu um erro ao carregar o conteúdo do blog. Por favor, tente novamente mais tarde.</p>`; 
+            resetMetaTags(); 
+        } 
+        checkCookieConsent(); // Verifica o consentimento de cookies ao carregar a aplicação
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeApp();
+        const acceptButton = document.getElementById('acceptCookies');
+        if (acceptButton) {
+            acceptButton.addEventListener('click', acceptCookies);
+        }
+    }); 
+    window.onpopstate = () => initializeApp();
   </script>
 </body>
 </html>
